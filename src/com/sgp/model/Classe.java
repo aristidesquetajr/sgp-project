@@ -4,10 +4,11 @@ public class Classe {
     private int idClasse;
     private Curso fkCurso;
     private String classe;
+    private Turma fkTurma;
     private int sala;
 
     public int getIdClasse() {
-        return idClasse;
+        return this.idClasse;
     }
 
     public void setIdClasse(int idClasse) {
@@ -28,6 +29,14 @@ public class Classe {
 
     public void setClasse(String classe) {
         this.classe = classe;
+    }
+
+    public Turma getFkTurma() {
+        return fkTurma;
+    }
+
+    public void setFkTurma(Turma fkTurma) {
+        this.fkTurma = fkTurma;
     }
 
     public int getSala() {

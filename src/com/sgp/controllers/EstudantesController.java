@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.sgp.dao.CursoDAO;
 import com.sgp.dao.PessoaDAO;
+import com.sgp.model.Aluno;
 import com.sgp.model.Curso;
 import com.sgp.model.Pessoa;
 
@@ -51,10 +52,13 @@ public class EstudantesController implements Initializable {
         pessoa.setNome(this.txtFullName.getText());
         pessoa.setGenero(generoRadio.getText());
         pessoa.setEmail(this.txtEmail.getText());
+        
+        Aluno aluno = new Aluno();
+        aluno.setFkPessoa(pessoa);
 
         if (pessoaDAO.cadastrarPessoa(pessoa)) {
             /*
-             * Aluno aluno = new Aluno();
+             * 
              * Classe classe = new Classe();
              * 
              * aluno.setFkPessoa(pessoaDAO.searchPessoa(pessoa.getNome()));

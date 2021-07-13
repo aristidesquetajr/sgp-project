@@ -76,7 +76,7 @@ public class MainPainelController implements Initializable {
     private void Logout(MouseEvent event) throws InterruptedException {
         makeFadeOut(rootPane);
         Thread.sleep(2001);
-        new OpenWindow("Login", "Login");
+        new OpenWindow("Login");
     }
 
     @FXML

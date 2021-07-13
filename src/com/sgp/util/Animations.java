@@ -39,7 +39,7 @@ public class Animations {
 
     private static FadeTransition makeFadeAnimation(AnchorPane rootPane) {
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(2));
+        fadeTransition.setDuration(Duration.seconds(5));
         fadeTransition.setNode(rootPane);        
         return fadeTransition;
     }

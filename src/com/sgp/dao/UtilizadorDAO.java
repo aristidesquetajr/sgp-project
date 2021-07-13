@@ -10,7 +10,7 @@ import com.sgp.model.Utilizador;
 public class UtilizadorDAO extends Conexao {
         
     public boolean getAccess(Utilizador user) {
-        String sql = "CALL login(?, ?)";
+        String sql ="CALL login(?, ?)";
         try{
             PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, user.getUsername());

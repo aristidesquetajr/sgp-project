@@ -1,21 +1,12 @@
 package com.sgp.model;
 
 public class Utilizador {
-    private int idUtilizador;
     private Funcionario fkFuncionario;
     private String username;
     private String password;
 
-    public int getIdUtilizador() {
-        return idUtilizador;
-    }
-
-    public void setIdUtilizador(int idUtilizador) {
-        this.idUtilizador = idUtilizador;
-    }
-
     public Funcionario getFkFuncionario() {
-        return fkFuncionario;
+        return this.fkFuncionario;
     }
 
     public void setFkFuncionario(Funcionario fkFuncionario) {
@@ -23,7 +14,7 @@ public class Utilizador {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -31,7 +22,7 @@ public class Utilizador {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {

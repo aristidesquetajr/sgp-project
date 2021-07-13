@@ -8,11 +8,14 @@ import com.sgp.conexao.Conexao;
 import com.sgp.model.Pessoa;
 
 public class PessoaDAO extends Conexao {
+
+    private PreparedStatement stmt;
+    private ResultSet res;
     
     public Boolean cadastrarPessoa(Pessoa pessoa) {
         String sql = "INSERT INTO Pessoa (nome, email, genero, nascimento) VALUES (?, ?, ?, ?)";
         try {
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, pessoa.getNome());
             stmt.setString(2, pessoa.getEmail());
             stmt.setString(3, pessoa.getGenero());
@@ -27,9 +30,9 @@ public class PessoaDAO extends Conexao {
     public Pessoa searchPessoa(String fullName) {
         String sql = "SELECT * FROM Pessoa WHERE nome = ?";
         try {
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, fullName);
-            ResultSet res = stmt.executeQuery();
+            res = stmt.executeQuery();
             Pessoa pessoa = new Pessoa();
             while (res.first()) {
                 pessoa.setIdPessoa(res.getInt("IdPessoa"));
@@ -44,5 +47,17 @@ public class PessoaDAO extends Conexao {
             System.out.println("Error: " + e.getMessage());
         }
         return null;
+    }
+
+    public int getLastIdCreated() {
+        String sql = "SELECT * FROM Pessoa ORDER BY idPessoa DESC LIMIT 1";
+        try {
+            stmt = getConnection().prepareStatement(sql);
+            res = stmt.executeQuery();
+            return res.isFirst() ? res.getInt("idPessoa") : -1;
+        } catch (Exception e) {
+            System.out.println("error: " + e.getMessage());
+        }
+        return -1;
     }
 }

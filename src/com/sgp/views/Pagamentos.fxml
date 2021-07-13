@@ -6,6 +6,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -59,5 +60,6 @@
         </columns>
       </TableView>
       <JFXButton buttonType="RAISED" layoutX="593.0" layoutY="379.0" prefHeight="50.0" prefWidth="97.0" text="OK" />
+      <ComboBox layoutX="479.0" layoutY="247.0" prefHeight="26.0" prefWidth="231.0" />
    </children>
 </AnchorPane>

@@ -1,19 +1,10 @@
 package com.sgp.model;
 
 public class Aluno {
-    private int idAluno;
     private Pessoa fkPessoa;
     private Classe fkClasse;
+    private int numAluno;
     private int codAluno;
-    private int numEstudante;
-
-    public int getIdAluno() {
-        return idAluno;
-    }
-
-    public void setIdAluno(int idAluno) {
-        this.idAluno = idAluno;
-    }
 
     public Pessoa getFkPessoa() {
         return fkPessoa;
@@ -31,19 +22,19 @@ public class Aluno {
         this.fkClasse = fkClasse;
     }
 
+    public int getNumAluno() {
+        return numAluno;
+    }
+
+    public void setNumAluno(int numAluno) {
+        this.numAluno = numAluno;
+    }  
+
     public int getCodAluno() {
         return codAluno;
     }
 
     public void setCodAluno(int numProcesso) {
         this.codAluno = numProcesso;
-    }
-
-    public int getNumEstudante() {
-        return numEstudante;
-    }
-
-    public void setNumEstudante(int numEstudante) {
-        this.numEstudante = numEstudante;
     }
 }

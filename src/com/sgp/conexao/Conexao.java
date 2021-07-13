@@ -11,7 +11,7 @@ public class Conexao {
     private final String pass;
     
     public Conexao() {
-        this.host = "jdbc:mysql://localhost:3306/projectoPropina";
+        this.host = "jdbc:mysql://localhost:3306/gesp";
         this.user = "root";
         this.pass = "KASHIKI";
     }

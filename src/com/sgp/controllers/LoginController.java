@@ -61,7 +61,7 @@ public class LoginController implements Initializable {
             if (utilizadorDAO.getAccess(utilizador)) {
                 System.out.println("Entrou");
                 makeFadeOut(window);
-                new OpenWindow("MainPainel", "Gestão de Propina");
+                new OpenWindow("MainPainel");
             } else {
                 this.txtUser.getStyleClass().add("error-input");
                 this.txtPass.getStyleClass().add("error-input");

@@ -13,7 +13,7 @@ public class OpenWindow {
 
     private double xOffset, yOffset;
 
-    public OpenWindow(String source, String title) {
+    public OpenWindow(String source) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/" + source + ".fxml"));
             Stage stage = new Stage();
@@ -35,7 +35,6 @@ public class OpenWindow {
             scene.setFill(Color.TRANSPARENT);
 
             stage.setScene(scene);
-            stage.setTitle(title);
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.initStyle(StageStyle.TRANSPARENT);
