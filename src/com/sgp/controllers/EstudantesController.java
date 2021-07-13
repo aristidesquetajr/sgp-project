@@ -91,7 +91,7 @@ public class EstudantesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
         CursoDAO.showCursosComboBox(cmbCurso);
         toggleCurso();
     }
