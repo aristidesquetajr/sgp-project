@@ -1,5 +1,8 @@
 package com.sgp.controllers;
 
+import static com.sgp.util.Animations.makeFadeIn;
+import static com.sgp.util.Animations.makeFadeOut;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -44,7 +47,7 @@ public class LoginController implements Initializable {
 
                 if (utilizadorDAO.getAccess(utilizador)) {
                     System.out.println("Entrou");
-                    closeCurrentWindow();
+                    makeFadeOut(window);
                     openPainel();
                 } else {
                     System.out.println("User or Password is incorret");
@@ -53,11 +56,6 @@ public class LoginController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    private void closeCurrentWindow() {
-        Stage curStage = (Stage) window.getScene().getWindow();
-        curStage.hide();
     }
 
     private void openPainel() {
@@ -76,7 +74,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        makeFadeIn(window);
     }
 
 }

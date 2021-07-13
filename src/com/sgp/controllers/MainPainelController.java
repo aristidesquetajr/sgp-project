@@ -1,5 +1,8 @@
 package com.sgp.controllers;
 
+import static com.sgp.util.Animations.makeFadeIn;
+import static com.sgp.util.Animations.makeFadeOut;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,6 +48,7 @@ public class MainPainelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        makeFadeIn(rootPane);
         loadNextPage("Home");
     }
 
@@ -64,9 +68,9 @@ public class MainPainelController implements Initializable {
     }
 
     @FXML
-    void handlebtnSingOutClick(MouseEvent event) {
-        Stage currentStage = (Stage) rootPane.getScene().getWindow();
-        currentStage.hide();
+    void handlebtnSingOutClick(MouseEvent event) throws InterruptedException {
+        makeFadeOut(rootPane);
+        Thread.sleep(2001);
         lanchLogin();
     }
 
