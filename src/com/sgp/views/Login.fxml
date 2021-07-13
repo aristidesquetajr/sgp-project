@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="291.0" prefWidth="417.0" styleClass="root" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.LoginController">
    <children>
       <Label layoutX="169.0" layoutY="13.0" text="SGP" textFill="#f2f2f2">
@@ -29,7 +28,7 @@
             <Font name="Roboto" size="20.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btnLogin" layoutX="141.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="133.0" styleClass="btnLogin" text="Login" textFill="WHITE">
+      <Button layoutX="141.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="133.0" styleClass="btnLogin" text="Login" textFill="WHITE">
          <font>
             <Font name="Roboto Bold" size="18.0" />
          </font>

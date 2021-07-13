@@ -1,8 +1,6 @@
 package com.sgp.controllers;
 
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import com.sgp.beans.Utilizador;
@@ -29,7 +27,7 @@ public class LoginController implements Initializable {
     private AnchorPane window;
 
     @FXML
-    void Login(ActionEvent event) {
+    private void Login(ActionEvent event) {
         String txtUsername, txtPassword;
         txtUsername = this.txtUser.getText();
         txtPassword = this.txtPass.getText();
@@ -62,8 +60,7 @@ public class LoginController implements Initializable {
 
     private void openPainel() {
         try {
-            URI uri = Paths.get("src/com/sgp/views/MainPainel.fxml").toAbsolutePath().toUri();
-            Parent root = FXMLLoader.load(uri.toURL());
+            Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/MainPainel.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
