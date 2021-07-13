@@ -25,7 +25,7 @@ public class ClasseDAO {
         this.sql = "INSERT INTO Classe (curso) VALUES (?)";
         try {
             this.stmt = this.conn.prepareStatement(this.sql);
-            this.stmt.setInt(1, classe.getClasse());
+            this.stmt.setString(1, classe.getClasse());
         } catch (SQLException e) {
             System.out.println("Erro no cadastro do curso: " + e.getMessage());
         }
