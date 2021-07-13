@@ -24,11 +24,11 @@ public class PessoaDAO {
             stmt.setString(2, pessoa.getEmail());
             stmt.setString(3, pessoa.getGenero());
             stmt.setString(4, pessoa.getNascimento());
-            return stmt.execute();
+            return stmt.execute() ? false : true;
         } catch(SQLException e) {
             System.out.println("Erro no cadastro: " + e.getMessage());
         }
-        return null;
+        return false;
     }
     
     public Pessoa searchPessoa(String fullName) {

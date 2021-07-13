@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.sgp.beans.Aluno;
+import com.sgp.beans.Classe;
 import com.sgp.beans.Curso;
 import com.sgp.beans.Pessoa;
 import com.sgp.dao.AlunoDAO;
@@ -43,22 +44,18 @@ public class EstudantesController implements Initializable {
     private void handleCadastrar(ActionEvent event) {
         Pessoa pessoa = new Pessoa();
         PessoaDAO pessoaDAO = new PessoaDAO();
+        
+        if (getInfoPessoa(pessoa, pessoaDAO)) {
+            /* Aluno aluno = new Aluno();
+            Classe classe = new Classe();
 
-        pessoa.setNome(this.txtFullName.getText());
-        pessoa.setGenero(this.cmbGenero.getValue());
-
-        String email = this.txtEmail.getText();
-        pessoa.setEmail(email);
-
-        LocalDate dataNascimento = this.dateNascimento.getValue();
-        pessoa.setNascimento(dataNascimento == null ? "0000-00-00" : dataNascimento.toString());
-        if (pessoaDAO.cadastrarPessoa(pessoa)) {
-            Aluno aluno = new Aluno();
-            aluno.setFkPessoa(pessoaDAO.searchPessoa(this.txtFullName.getText()));
+            aluno.setFkPessoa(pessoaDAO.searchPessoa(pessoa.getNome()));
 
             System.out.println(pessoaDAO.searchPessoa(pessoa.getNome()).toString());
             AlunoDAO alunoDAO = new AlunoDAO();
 
+            alunoDAO.cadastro(pessoa, aluno, classe); */
+            System.out.println("Success");
         }
 
     }
@@ -80,7 +77,7 @@ public class EstudantesController implements Initializable {
     private void showGeneros() {
         ObservableList<String> listGeneros;
         listGeneros = FXCollections.observableArrayList(new String[] {"Masculino", "Femenino"});
-        cmbGenero.setItems(listGeneros);
+        cmbGenero.setItems(listGeneros);    
     }
 
     private void showCursos() {
@@ -97,5 +94,20 @@ public class EstudantesController implements Initializable {
             "10ª Classe", "11ª Classe", "12ª Classe", "13ª Classe"
         });
         cmbClasse.setItems(listClasses);
+    }
+
+    private Boolean getInfoPessoa(Pessoa pessoa, PessoaDAO pessoaDAO) {
+        try {
+            pessoa.setNome(this.txtFullName.getText());
+            pessoa.setGenero(this.cmbGenero.getValue());
+            pessoa.setEmail(this.txtEmail.getText());
+
+            LocalDate dataNascimento = this.dateNascimento.getValue();
+            pessoa.setNascimento(dataNascimento == null ? "0000-00-00" : dataNascimento.toString());
+            return pessoaDAO.cadastrarPessoa(pessoa);
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return false;
     }
 }

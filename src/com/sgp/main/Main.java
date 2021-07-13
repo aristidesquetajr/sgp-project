@@ -10,11 +10,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/MainPainel.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Login");
-        stage.setResizable(true);
         stage.show();
     }
     

@@ -1,5 +1,6 @@
 package com.sgp.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -7,8 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -17,20 +21,14 @@ import javafx.scene.layout.Pane;
  */
 public class MainPainelController implements Initializable {
 
-    @FXML
-    private Pane btnHome;
-    @FXML
-    private Pane btnEstudantes;
-    @FXML
-    private Pane btnCursos;
-    @FXML
-    private Pane btnPagar;
-    @FXML
-    private Pane btnRelatorio;
+   
     @FXML
     private Pane navbar;
     @FXML
     private Pane section;
+
+    @FXML
+    private AnchorPane rootPane;
 
     private void loadNextPage(String page) {
         try {
@@ -63,6 +61,28 @@ public class MainPainelController implements Initializable {
     @FXML
     private void openEstudantes(MouseEvent event) {
         loadNextPage("Estudantes");
+    }
+
+    @FXML
+    void handlebtnSingOutClick(MouseEvent event) {
+        Stage currentStage = (Stage) rootPane.getScene().getWindow();
+        currentStage.hide();
+        lanchLogin();
+    }
+
+    private void lanchLogin() {
+        try {
+            Parent source = FXMLLoader.load(getClass().getResource("/com/sgp/views/Login.fxml"));
+            Scene scene = new Scene(source);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.setTitle("Login");
+            stage.show();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
 }

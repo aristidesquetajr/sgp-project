@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
+
 <TabPane prefHeight="381.0" prefWidth="658.0" styleClass="mainFxmlClass" stylesheets="@../css/estudantes.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
   <tabs>
       <Tab text="Cadastrar novo Estudante">
@@ -97,6 +98,7 @@
                   </TableView>
                </children>
             </AnchorPane>
-         </content></Tab>
+         </content>
+      </Tab>
   </tabs>
 </TabPane>
