@@ -20,13 +20,15 @@
       <TextField fx:id="txtUser" layoutX="41.0" layoutY="94.0" onAction="#Login" prefHeight="32.0" prefWidth="319.0" promptText="Username" style="-fx-text-fill: white;" styleClass="inputs">
          <font>
             <Font name="Roboto" size="20.0" />
-         </font></TextField>
+         </font>
+      </TextField>
       <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="43.0" layoutY="191.0" size="2em" />
       <PasswordField fx:id="txtPass" layoutX="43.0" layoutY="165.0" onAction="#Login" prefHeight="32.0" prefWidth="319.0" promptText="Password" styleClass="inputs">
          <font>
             <Font name="Roboto" size="20.0" />
-         </font></PasswordField>
-      <Button fx:id="btnLogin" layoutX="141.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="133.0" styleClass="btnLogin" text="Login" textFill="WHITE">
+         </font>
+      </PasswordField>
+      <Button layoutX="141.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="133.0" styleClass="btnLogin" text="Login" textFill="WHITE">
          <font>
             <Font name="Roboto Bold" size="18.0" />
          </font>
