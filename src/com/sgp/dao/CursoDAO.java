@@ -8,8 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 
 public class CursoDAO {
 
@@ -53,16 +51,5 @@ public class CursoDAO {
             System.out.println("Erro na obtençao dos dados: " + e.getMessage());
             return null;
         }
-    }
-
-    public static void showCursosComboBox(MenuButton cmbCurso) {
-        CursoDAO cursoDAO = new CursoDAO();
-        List<Curso> listCursos = cursoDAO.getCursos();
-        listCursos.forEach((Curso curso) -> {
-            MenuItem item = new MenuItem();
-
-            item.setText(curso.toString());
-            cmbCurso.getItems().add(item);
-        });
     }
 }

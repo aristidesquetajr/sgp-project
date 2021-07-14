@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="730.0" stylesheets="@../css/mainPainel.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
+<AnchorPane id="AnchorPane" prefHeight="468.0" prefWidth="855.0" stylesheets="@../css/mainPainel.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
    <children>
-      <BorderPane prefHeight="452.0" prefWidth="790.0">
+      <BorderPane prefHeight="468.0" prefWidth="855.0">
          <left>
             <Pane fx:id="navbar" prefHeight="408.0" prefWidth="52.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
                <children>
@@ -94,7 +94,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="15.0" layoutY="432.0" size="2em">
+                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="15.0" layoutY="451.0" size="2em">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -103,7 +103,7 @@
             </Pane>
          </left>
          <center>
-            <Pane prefHeight="408.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="408.0" prefWidth="730.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
                <children>
                   <Pane fx:id="section" layoutX="12.0" layoutY="6.0" prefHeight="452.0" prefWidth="727.0" />
                </children>

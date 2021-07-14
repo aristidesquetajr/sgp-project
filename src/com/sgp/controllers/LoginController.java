@@ -21,8 +21,10 @@ public class LoginController implements Initializable {
 
     @FXML
     private PasswordField txtPass;
+
     @FXML
     private TextField txtUser;
+    
     @FXML
     private AnchorPane window;
 
