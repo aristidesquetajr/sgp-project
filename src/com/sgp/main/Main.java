@@ -1,37 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package main;
+package com.sgp.main;
 
+import java.net.URI;
+import java.nio.file.Paths;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author kashiki
- */
-public class SgpProject extends Application {
-    
+public class Main extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+        URI uri = Paths.get("src/com/sgp/views/Login.fxml").toAbsolutePath().toUri();
+        System.out.println("Source: " + uri);
         
+        Parent root = FXMLLoader.load(uri.toURL());
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
+        stage.setTitle("Login");
+        stage.setResizable(false);
         stage.show();
+        
     }
-
+    
+    private void windows() {
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
-    }
-    
+    };
+
 }

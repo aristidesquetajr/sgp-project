@@ -1,0 +1,33 @@
+
+
+.mainMenu {
+    -fx-background-color: #001233;
+}
+
+.mainMenu:hover {
+    -fx-pref-width: 140px;
+}
+
+.items-menu {
+    -fx-pref-width: 52px;
+    -fx-background-color: #00183F;
+    -fx-padding: 0 5px 0 5px;
+}
+
+.items-menu:hover {
+    -fx-background-color: rgba(0, 0, 0, .2);
+    -fx-border-width: 0 0 0 4px;
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-position: absolute;
+}
+
+.mainMenu:hover  .items-menu {
+    -fx-pref-width: 140px;
+}
+
+.section {
+    -fx-background-color: #ddd;
+   
+}
+

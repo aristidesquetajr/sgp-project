@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<TabPane prefHeight="381.0" prefWidth="658.0" styleClass="mainFxmlClass" stylesheets="@../css/estudantes.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
+  <tabs>
+      <Tab text="Cadastrar">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="343.0" prefWidth="636.0">
+               <children>
+                  <Label contentDisplay="RIGHT" layoutX="20.0" layoutY="40.0" prefHeight="31.0" prefWidth="254.0" text="Nome:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <TextField fx:id="txtFullName" prefHeight="31.0" prefWidth="200.0" promptText="full name" translateX="12.0">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                        </TextField>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="RIGHT" layoutX="336.0" layoutY="40.0" prefHeight="31.0" prefWidth="283.0" text="E-mail:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <TextField fx:id="txtEmail" prefHeight="31.0" prefWidth="200.0" promptText="user@example.com" translateX="40.0">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                        </TextField>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="RIGHT" layoutX="20.0" layoutY="117.0" prefHeight="31.0" prefWidth="258.0" text="Genero:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MenuButton fx:id="cmbGenero" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="Masculino" translateX="8.0">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#toggleGenero" text="Masculino" />
+                              <MenuItem mnemonicParsing="false" onAction="#toggleGenero" text="Femenino" />
+                           </items>
+                        </MenuButton>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="RIGHT" layoutX="336.0" layoutY="117.0" prefHeight="31.0" prefWidth="284.0" text="Nascimento:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <DatePicker fx:id="dateNascimento" prefHeight="31.0" prefWidth="200.0" promptText="2003/11/05" translateX="4.0" />
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="RIGHT" layoutX="20.0" layoutY="185.0" prefHeight="31.0" prefWidth="257.0" text="Curso:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MenuButton fx:id="cmbCurso" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="Informatica" translateX="16.0">
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                        </MenuButton>
+                     </graphic>
+                  </Label>
+                  <Label contentDisplay="RIGHT" layoutX="336.0" layoutY="185.0" prefHeight="31.0" prefWidth="282.0" text="Classe:">
+                     <font>
+                        <Font name="Roboto" size="13.0" />
+                     </font>
+                     <graphic>
+                        <MenuButton fx:id="cmbClasse" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" text="10ª Classe" translateX="36.0">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#toggleClasse" text="10ª Classe" />
+                              <MenuItem mnemonicParsing="false" onAction="#toggleClasse" text="11ª Classe" />
+                              <MenuItem mnemonicParsing="false" onAction="#toggleClasse" text="12ª Classe" />
+                              <MenuItem mnemonicParsing="false" onAction="#toggleClasse" text="13ª Classe" />
+                           </items>
+                           <font>
+                              <Font name="Roboto" size="13.0" />
+                           </font>
+                        </MenuButton>
+                     </graphic>
+                  </Label>
+                  <Button layoutX="516.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleCadastrar" prefHeight="42.0" prefWidth="92.0" text="Cadastrar" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+    <Tab text="Mostrar" />
+  </tabs>
+</TabPane>

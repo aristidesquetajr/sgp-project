@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="405.0" prefWidth="730.0" stylesheets="@../css/mainPainel.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
+   <children>
+      <BorderPane prefHeight="452.0" prefWidth="790.0">
+         <left>
+            <Pane fx:id="navbar" prefHeight="408.0" prefWidth="52.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="btnHome" layoutX="-1.0" layoutY="3.0" onMouseClicked="#openHome" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="HOME" layoutX="18.0" layoutY="36.0" size="2em" />
+                        <Label alignment="CENTER" layoutX="51.0" layoutY="13.0" prefHeight="26.0" prefWidth="46.0" text="Home" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <Pane fx:id="btnEstudantes" layoutX="-1.0" layoutY="56.0" onMouseClicked="#openEstudantes" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="16.0" layoutY="36.0" size="2em" />
+                        <Label alignment="CENTER" layoutX="53.0" layoutY="13.0" prefHeight="26.0" prefWidth="73.0" text="Estudantes" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <Pane fx:id="btnCursos" layoutY="109.0" onMouseClicked="#openCursos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PASTE" layoutX="15.0" layoutY="36.0" size="2em" />
+                        <Label alignment="CENTER" layoutX="54.0" layoutY="16.0" prefHeight="26.0" prefWidth="48.0" text="Cursos" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <Pane fx:id="btnPagar" layoutY="163.0" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                     <children>
+                        <Label alignment="CENTER" layoutX="50.0" layoutY="16.0" prefHeight="26.0" prefWidth="86.0" text="Pagamentos" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="14.0" layoutY="36.0" size="2em" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <Pane fx:id="btnRelatorio" layoutY="217.0" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="CALENDAR" layoutX="16.0" layoutY="32.0" size="2em" />
+                        <Label alignment="CENTER_RIGHT" layoutX="51.0" layoutY="13.0" prefHeight="16.0" prefWidth="62.0" text="Relatorio" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="15.0" layoutY="432.0" size="2em">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIcon>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane prefHeight="408.0" prefWidth="730.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="section" layoutX="12.0" layoutY="6.0" prefHeight="452.0" prefWidth="727.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

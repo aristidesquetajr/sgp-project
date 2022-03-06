@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.CursosController">
+   <center>
+      <Pane prefHeight="348.0" prefWidth="360.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtCurso" layoutX="30.0" layoutY="41.0" prefHeight="38.0" prefWidth="195.0">
+               <font>
+                  <Font name="Roboto" size="13.0" />
+               </font></TextField>
+            <Button layoutX="232.0" layoutY="42.0" minWidth="53.0" mnemonicParsing="false" onAction="#handleAddCurso" prefHeight="37.0" prefWidth="94.0" text="Add">
+               <font>
+                  <Font name="Roboto" size="13.0" />
+               </font></Button>
+         </children>
+      </Pane>
+   </center>
+   <left>
+      <ListView fx:id="listCursos" prefHeight="348.0" prefWidth="221.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
