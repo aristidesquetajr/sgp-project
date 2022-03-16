@@ -1,3 +1,6 @@
-.mainFxmlClass {
-
+.box {
+    -fx-background-color: #eee;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-color: rgb(11, 171, 199);
 }

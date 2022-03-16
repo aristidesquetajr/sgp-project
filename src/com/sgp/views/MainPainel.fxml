@@ -8,15 +8,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="468.0" prefWidth="855.0" stylesheets="@../css/mainPainel.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="468.0" prefWidth="850.0" stylesheets="@../css/mainPainel.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
    <children>
-      <BorderPane prefHeight="468.0" prefWidth="855.0">
+      <BorderPane prefHeight="482.0" prefWidth="855.0">
          <left>
             <Pane prefHeight="408.0" prefWidth="52.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="-1.0" layoutY="3.0" onMouseClicked="#openHome" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                  <Pane layoutX="-1.0" layoutY="-1.0" onMouseClicked="#openHome" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="HOME" layoutX="18.0" layoutY="36.0" size="2em" />
+                        <FontAwesomeIcon fill="#c6bdbd" glyphName="HOME" layoutX="18.0" layoutY="36.0" size="2em" />
                         <Label alignment="CENTER" layoutX="51.0" layoutY="13.0" prefHeight="26.0" prefWidth="46.0" text="Home" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="13.0" />
@@ -30,9 +30,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <Pane layoutX="-1.0" layoutY="56.0" onMouseClicked="#openEstudantes" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                  <Pane layoutX="-1.0" layoutY="52.0" onMouseClicked="#openEstudantes" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="16.0" layoutY="36.0" size="2em" />
+                        <FontAwesomeIcon fill="#c6bdbd" glyphName="USERS" layoutX="16.0" layoutY="36.0" size="2em" />
                         <Label alignment="CENTER" layoutX="53.0" layoutY="13.0" prefHeight="26.0" prefWidth="73.0" text="Estudantes" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="13.0" />
@@ -46,9 +46,9 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <Pane layoutY="109.0" onMouseClicked="#openCursos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                  <Pane layoutY="105.0" onMouseClicked="#openCursos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="PASTE" layoutX="15.0" layoutY="36.0" size="2em" />
+                        <FontAwesomeIcon fill="#c6bdbd" glyphName="PASTE" layoutX="15.0" layoutY="36.0" size="2em" />
                         <Label alignment="CENTER" layoutX="54.0" layoutY="16.0" prefHeight="26.0" prefWidth="48.0" text="Cursos" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="13.0" />
@@ -62,7 +62,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <Pane layoutY="163.0" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                  <Pane layoutY="159.0" onMouseClicked="#openPagamentos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
                      <children>
                         <Label alignment="CENTER" layoutX="50.0" layoutY="16.0" prefHeight="26.0" prefWidth="86.0" text="Pagamentos" textFill="WHITE">
                            <font>
@@ -72,15 +72,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <FontAwesomeIcon fill="WHITE" glyphName="UNIVERSITY" layoutX="14.0" layoutY="36.0" size="2em" />
+                        <FontAwesomeIcon fill="#c6bdbd" glyphName="UNIVERSITY" layoutX="14.0" layoutY="36.0" size="2em" />
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <Pane layoutY="217.0" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
+                  <Pane layoutY="213.0" onMouseClicked="#openRelatorio" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
                      <children>
-                        <FontAwesomeIcon fill="WHITE" glyphName="CALENDAR" layoutX="16.0" layoutY="32.0" size="2em" />
+                        <FontAwesomeIcon fill="#c6bdbd" glyphName="CALENDAR" layoutX="16.0" layoutY="32.0" size="2em" />
                         <Label alignment="CENTER_RIGHT" layoutX="51.0" layoutY="13.0" prefHeight="16.0" prefWidth="62.0" text="Relatorio" textFill="WHITE">
                            <font>
                               <Font name="Arial" size="13.0" />
@@ -94,18 +94,22 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Pane>
-                  <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutX="15.0" layoutY="451.0" onMouseClicked="#handleBtnLogoutClick" size="2em">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </FontAwesomeIcon>
+                  <Pane layoutX="15.0" layoutY="428.71429443359375">
+                     <children>
+                        <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" layoutY="21.0" onMouseClicked="#handleBtnLogoutClick" size="2em">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIcon>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </left>
          <center>
-            <Pane prefHeight="408.0" prefWidth="730.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="408.0" prefWidth="730.0" styleClass="section" BorderPane.alignment="CENTER">
                <children>
-                  <Pane fx:id="section" layoutX="12.0" layoutY="6.0" prefHeight="452.0" prefWidth="781.0" />
+                  <Pane fx:id="section" layoutX="-1.0" prefHeight="482.0" prefWidth="806.0" />
                </children>
             </Pane>
          </center>

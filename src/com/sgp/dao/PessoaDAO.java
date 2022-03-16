@@ -1,25 +1,18 @@
 package com.sgp.dao;
 
-import com.sgp.beans.Pessoa;
-import com.sgp.conexao.Conexao;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PessoaDAO {
-    private final Conexao conexao;
-    private final Connection conn;
-    
-    public PessoaDAO() {
-        this.conexao = new Conexao();
-        this.conn = this.conexao.getConnection();
-    }
+import com.sgp.beans.Pessoa;
+import com.sgp.conexao.Conexao;
+
+public class PessoaDAO extends Conexao {
     
     public Boolean cadastrarPessoa(Pessoa pessoa) {
-        String sql = "INSERT INTO Pessoa (nome, email, genero, nascimento) values (?, ?, ?, ?)";
+        String sql = "INSERT INTO Pessoa (nome, email, genero, nascimento) VALUES (?, ?, ?, ?)";
         try {
-            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, pessoa.getNome());
             stmt.setString(2, pessoa.getEmail());
             stmt.setString(3, pessoa.getGenero());
@@ -34,7 +27,7 @@ public class PessoaDAO {
     public Pessoa searchPessoa(String fullName) {
         String sql = "SELECT * FROM Pessoa WHERE nome = ?";
         try {
-            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            PreparedStatement stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, fullName);
             ResultSet res = stmt.executeQuery();
             Pessoa pessoa = new Pessoa();
@@ -47,8 +40,8 @@ public class PessoaDAO {
             }
             
             return pessoa;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
         }
         return null;
     }

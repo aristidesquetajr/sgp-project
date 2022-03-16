@@ -1,0 +1,11 @@
+
+.table {
+    -fx-background-color: #474747;
+    -fx-fill: white;
+}
+
+.table-column {
+    -fx-background-color: #575757;
+    -fx-padding: 0 0 10 0;
+    -fx-text-fill: white !important;
+}

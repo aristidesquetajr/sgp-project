@@ -68,6 +68,16 @@ public class MainPainelController implements Initializable {
     }
 
     @FXML
+    void openPagamentos(MouseEvent event) {
+        loadNextPage("Pagamentos");
+    }
+
+    @FXML
+    void openRelatorio(MouseEvent event) {
+        loadNextPage("Relatorio");
+    }
+
+    @FXML
     void handleBtnLogoutClick(MouseEvent event) throws InterruptedException {
         makeFadeOut(rootPane);
         Thread.sleep(2001);

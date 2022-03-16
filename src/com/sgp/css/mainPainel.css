@@ -8,6 +8,10 @@
     -fx-pref-width: 140px;
 }
 
+.mainMenu:hover  .items-menu {
+    -fx-pref-width: 140px;
+}
+
 .items-menu {
     -fx-pref-width: 52px;
     -fx-background-color: #00183F;
@@ -15,19 +19,24 @@
 }
 
 .items-menu:hover {
-    -fx-background-color: rgba(0, 0, 0, .2);
-    -fx-border-width: 0 0 0 4px;
+    -fx-background-color: #00183f18;
+    -fx-border-width: 0 0 0 6px;
     -fx-border-style: solid;
-    -fx-border-color: white;
+    -fx-border-color: #ffffff;
     -fx-position: absolute;
 }
 
-.mainMenu:hover  .items-menu {
-    -fx-pref-width: 140px;
+
+.items-menu:hover Label {
+    -fx-text-fill: rgb(100, 100, 100);
+}
+
+.items-menu:hover FontAwesomeIcon {
+    -fx-fill: white;
 }
 
 .section {
-    -fx-background-color: #ddd;
+    -fx-background-color: #282A36;
    
 }
 
