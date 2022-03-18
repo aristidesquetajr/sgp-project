@@ -1,4 +1,4 @@
-package com.sgp.beans;
+package com.sgp.model;
 
 public class Propina {
     private int idPropina;

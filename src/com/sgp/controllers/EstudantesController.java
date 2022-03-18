@@ -4,13 +4,13 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import com.sgp.beans.Aluno;
-import com.sgp.beans.Classe;
-import com.sgp.beans.Curso;
-import com.sgp.beans.Pessoa;
 import com.sgp.dao.AlunoDAO;
 import com.sgp.dao.CursoDAO;
 import com.sgp.dao.PessoaDAO;
+import com.sgp.model.Aluno;
+import com.sgp.model.Classe;
+import com.sgp.model.Curso;
+import com.sgp.model.Pessoa;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -1,9 +1,10 @@
 package com.sgp.dao;
 
-import com.sgp.beans.Aluno;
-import com.sgp.beans.Classe;
-import com.sgp.beans.Pessoa;
 import com.sgp.conexao.Conexao;
+import com.sgp.model.Aluno;
+import com.sgp.model.Classe;
+import com.sgp.model.Pessoa;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

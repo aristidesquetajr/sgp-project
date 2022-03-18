@@ -19,3 +19,7 @@
 .btnLogin:hover {
     -fx-background-color: #1F2A4F;
 }
+
+.efectHover:hover {
+    -fx-fill: gray;
+}

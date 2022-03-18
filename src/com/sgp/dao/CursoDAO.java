@@ -1,7 +1,8 @@
 package com.sgp.dao;
 
-import com.sgp.beans.Curso;
 import com.sgp.conexao.Conexao;
+import com.sgp.model.Curso;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

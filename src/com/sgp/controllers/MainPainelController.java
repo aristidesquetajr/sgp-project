@@ -3,19 +3,17 @@ package com.sgp.controllers;
 import static com.sgp.util.Animations.makeFadeIn;
 import static com.sgp.util.Animations.makeFadeOut;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sgp.util.OpenWindow;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -24,24 +22,15 @@ import javafx.stage.Stage;
  */
 public class MainPainelController implements Initializable {
 
-   
     @FXML
-    private Pane navbar;
+    private Label lblTitle;
+
     @FXML
     private Pane section;
 
     @FXML
     private AnchorPane rootPane;
 
-    private void loadNextPage(String page) {
-        try {
-            Parent source = FXMLLoader.load(getClass().getResource("/com/sgp/views/" + page + ".fxml"));
-            this.section.getChildren().removeAll(this.section.getChildren());
-            this.section.getChildren().add(source);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
 
     /**
      * Initializes the controller class.
@@ -49,54 +38,49 @@ public class MainPainelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         makeFadeIn(rootPane);
-        loadNextPage("Home");
+        lblTitle.setText("Homepage");
+        new OpenWindow(section, "Home");
     }
 
     @FXML
     private void openHome(MouseEvent event) {
-        loadNextPage("Home");
+        lblTitle.setText("Homepage");
+        new OpenWindow(section, "Home");
     }
 
     @FXML
     private void openCursos(MouseEvent event) {
-        loadNextPage("Cursos");
+        lblTitle.setText("Cursos");
+        new OpenWindow(section, "Cursos");
     }
 
     @FXML
     private void openEstudantes(MouseEvent event) {
-        loadNextPage("Estudantes");
+        lblTitle.setText("Estudantes");
+        new OpenWindow(section, "Estudantes");
     }
 
     @FXML
     void openPagamentos(MouseEvent event) {
-        loadNextPage("Pagamentos");
+        lblTitle.setText("Pagamentos");
+        new OpenWindow(section, "Pagamentos");
     }
 
     @FXML
     void openRelatorio(MouseEvent event) {
-        loadNextPage("Relatorio");
+        lblTitle.setText("Relatorios");
+        new OpenWindow(section, "Relatorio");
     }
 
     @FXML
-    void handleBtnLogoutClick(MouseEvent event) throws InterruptedException {
+    private void Logout(MouseEvent event) throws InterruptedException {
         makeFadeOut(rootPane);
         Thread.sleep(2001);
-        lanchLogin();
+        new OpenWindow("Login", "Login");
     }
 
-    private void lanchLogin() {
-        try {
-            Parent source = FXMLLoader.load(getClass().getResource("/com/sgp/views/Login.fxml"));
-            Scene scene = new Scene(source);
-            Stage stage = new Stage();
-
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.setTitle("Login");
-            stage.show();
-        } catch (IOException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    @FXML
+    private void closeApplication(MouseEvent event) {
+        System.exit(0);
     }
-
 }

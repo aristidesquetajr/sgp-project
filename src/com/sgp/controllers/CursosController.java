@@ -3,8 +3,8 @@ package com.sgp.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sgp.beans.Curso;
 import com.sgp.dao.CursoDAO;
+import com.sgp.model.Curso;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
@@ -109,21 +108,10 @@
               </tabs>
             </TabPane>
          </center>
-         <top>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="885.0" styleClass="title-pag" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="28.0" layoutY="31.0" text="Estudantes" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto" size="26.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </top>
       </BorderPane>
    </children>
    <stylesheets>
-      <URL value="@../css/estiloGlobal.css" />
-      <URL value="@../css/estudantes.css" />
+      <URL value="@../styles/estiloGlobal.css" />
+      <URL value="@../styles/estudantes.css" />
    </stylesheets>
 </AnchorPane>
