@@ -1,42 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="442.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane layoutX="-4.0" prefHeight="442.0" prefWidth="858.0">
-         <top>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="98.0" prefWidth="858.0" styleClass="title-pag" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="28.0" layoutY="31.0" text="Homepage" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto" size="26.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </top>
          <center>
             <Pane prefHeight="302.0" prefWidth="858.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane layoutX="29.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
                   <Pane layoutX="29.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="252.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="475.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="252.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="475.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
+                  <Pane layoutX="269.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
+                  <Pane layoutX="513.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
+                  <Pane layoutX="269.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
+                  <Pane layoutX="513.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
                </children>
             </Pane>
          </center>
       </BorderPane>
    </children>
    <stylesheets>
-      <URL value="@../css/estiloGlobal.css" />
-      <URL value="@../css/home.css" />
+      <URL value="@../styles/estiloGlobal.css" />
+      <URL value="@../styles/home.css" />
    </stylesheets>
 </AnchorPane>

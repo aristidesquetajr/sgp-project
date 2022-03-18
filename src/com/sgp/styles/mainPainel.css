@@ -1,15 +1,7 @@
-
+/* Menu Lateral */
 
 .mainMenu {
     -fx-background-color: #001233;
-}
-
-.mainMenu:hover {
-    -fx-pref-width: 140px;
-}
-
-.mainMenu:hover  .items-menu {
-    -fx-pref-width: 140px;
 }
 
 .items-menu {
@@ -35,8 +27,19 @@
     -fx-fill: white;
 }
 
-.section {
-    -fx-background-color: #282A36;
+/* Conteudo  da app */
+
+.container {
+    -fx-background-color: #606270;
    
 }
 
+/* Cabecalho */
+
+.header {
+    -fx-background-color: #343746;
+}
+
+.efectHover:hover {
+    -fx-fill: grey;
+}

@@ -1,7 +1,17 @@
 package com.sgp.util;
 
+import java.net.URI;
+import java.nio.file.Paths;
+
 import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -32,5 +42,28 @@ public class Animations {
         fadeTransition.setDuration(Duration.seconds(2));
         fadeTransition.setNode(rootPane);        
         return fadeTransition;
+    }
+
+    public static void openLoginOrResetPass(AnchorPane rootPane, String source) {
+        try {
+            URI src = Paths.get("src/com/sgp/views/" + source +".fxml").toAbsolutePath().toUri();
+            Parent root = FXMLLoader.load(src.toURL());
+            Scene scene = rootPane.getScene();
+
+            root.translateXProperty().set(scene.getWidth());
+            rootPane.getChildren().add(root);
+
+            Timeline timeline = new Timeline();
+            KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
+            KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
+            timeline.getKeyFrames().add(kf);
+
+            timeline.setOnFinished(event2 -> {
+                rootPane.getChildren().remove(rootPane.getChildren().get(0));
+            });
+            timeline.play();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

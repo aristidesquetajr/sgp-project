@@ -4,8 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.sgp.beans.Pessoa;
 import com.sgp.conexao.Conexao;
+import com.sgp.model.Pessoa;
 
 public class PessoaDAO extends Conexao {
     

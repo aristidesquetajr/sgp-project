@@ -1,24 +1,22 @@
 package com.sgp.controllers;
 
-import static com.sgp.util.Animations.makeFadeIn;
-import static com.sgp.util.Animations.makeFadeOut;
+import static com.sgp.util.Animations.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.sgp.beans.Utilizador;
 import com.sgp.dao.UtilizadorDAO;
+import com.sgp.model.Utilizador;
+import com.sgp.util.OpenWindow;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
@@ -27,7 +25,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField txtUser;
-    
+
     @FXML
     private AnchorPane window;
 
@@ -48,9 +46,12 @@ public class LoginController implements Initializable {
                 if (utilizadorDAO.getAccess(utilizador)) {
                     System.out.println("Entrou");
                     makeFadeOut(window);
-                    openPainel();
+                    new OpenWindow("MainPainel", "Gestão de Propina");
                 } else {
-                    System.out.println("User or Password is incorret");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Username or Password is incorret");
+                    alert.show();
+                    System.out.println("Username or Password is incorret");
                 }
             }
         } catch (Exception e) {
@@ -58,18 +59,14 @@ public class LoginController implements Initializable {
         }
     }
 
-    private void openPainel() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/MainPainel.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Sistema Gestao Propina");
-            stage.setResizable(false);
-            stage.show();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    @FXML
+    private void openRecoverPassword(ActionEvent event) {
+        openLoginOrResetPass(window, "RecoverPassword");
+    }
+
+    @FXML
+    private void closeApplication(MouseEvent event) {
+        System.exit(0);
     }
 
     @Override

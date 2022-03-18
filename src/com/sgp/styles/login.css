@@ -1,5 +1,6 @@
 .root {
     -fx-background-color: linear-gradient(#132743, #223333);
+    -fx-background-radius: 2.5%;
 }
 
 .inputs {
@@ -13,9 +14,14 @@
 
 .btnLogin {
     -fx-background-color: #223354;
+    -fx-background-radius: 10%;
     -fx-text-fill: white;
 }
 
 .btnLogin:hover {
     -fx-background-color: #1F2A4F;
+}
+
+.efectHover:hover {
+    -fx-fill: gray;
 }

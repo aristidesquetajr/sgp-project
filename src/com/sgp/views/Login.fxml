@@ -3,38 +3,55 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="window" prefHeight="291.0" prefWidth="417.0" styleClass="root" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.LoginController">
+
+<AnchorPane id="AnchorPane" fx:id="window" prefHeight="355.0" prefWidth="450.0" styleClass="root" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.LoginController">
    <children>
-      <Label layoutX="169.0" layoutY="13.0" text="SGP" textFill="#f2f2f2">
-         <font>
-            <Font name="Roboto Slab Bold" size="36.0" />
-         </font>
-      </Label>
-      <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="42.0" layoutY="119.0" size="2em" />
-      <TextField fx:id="txtUser" layoutX="41.0" layoutY="94.0" onAction="#Login" prefHeight="32.0" prefWidth="319.0" promptText="Username" style="-fx-text-fill: white;" styleClass="inputs">
-         <font>
-            <Font name="Roboto" size="20.0" />
-         </font>
-      </TextField>
-      <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="43.0" layoutY="191.0" size="2em" />
-      <PasswordField fx:id="txtPass" layoutX="43.0" layoutY="165.0" onAction="#Login" prefHeight="32.0" prefWidth="319.0" promptText="Password" styleClass="inputs">
-         <font>
-            <Font name="Roboto" size="20.0" />
-         </font>
-      </PasswordField>
-      <Button layoutX="141.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="133.0" styleClass="btnLogin" text="Login" textFill="WHITE">
-         <font>
-            <Font name="Roboto Bold" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <Pane fx:id="container" layoutX="4.0" layoutY="7.0" prefHeight="343.0" prefWidth="442.0">
+         <children>
+            <Label layoutX="186.0" layoutY="2.0" text="SGP" textFill="#f2f2f2">
+               <font>
+                  <Font name="Roboto Slab Bold" size="36.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="409.0" layoutY="24.285715103149414" onMouseClicked="#closeApplication" size="1.5em" styleClass="efectHover">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontAwesomeIcon>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="50.0" layoutY="105.0" size="2em" />
+            <TextField fx:id="txtUser" layoutX="50.0" layoutY="80.0" onAction="#Login" prefHeight="33.0" prefWidth="360.0" promptText="Username" style="-fx-text-fill: white;" styleClass="inputs">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </TextField>
+            <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="52.0" layoutY="180.0" size="2em" />
+            <PasswordField fx:id="txtPass" layoutX="51.0" layoutY="155.0" onAction="#Login" prefHeight="33.0" prefWidth="359.0" promptText="Password" styleClass="inputs">
+               <font>
+                  <Font name="Roboto" size="17.0" />
+               </font>
+            </PasswordField>
+            <Button layoutX="148.0" layoutY="232.0" mnemonicParsing="false" onAction="#Login" prefHeight="42.0" prefWidth="147.0" styleClass="btnLogin" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Hyperlink layoutX="18.0" layoutY="302.0" onAction="#openRecoverPassword" text="Lost Password?" textFill="#acaaaa">
+               <font>
+                  <Font name="Roboto Bold" size="13.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

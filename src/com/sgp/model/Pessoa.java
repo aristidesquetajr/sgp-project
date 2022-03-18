@@ -1,4 +1,4 @@
-package com.sgp.beans;
+package com.sgp.model;
 
 public class Pessoa {
     private int idPessoa;
