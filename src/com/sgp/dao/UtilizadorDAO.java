@@ -16,6 +16,9 @@ public class UtilizadorDAO extends Conexao {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
             ResultSet result = stmt.executeQuery();
+           /*  while(result.first()) {
+                
+            } */
             return result.first();
         }catch(SQLException e) {
             System.out.println("Error login: " + e.getMessage());

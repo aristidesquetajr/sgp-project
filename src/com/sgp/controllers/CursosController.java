@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.onexip.flexboxfx.FlexBox;
+import com.dukescript.layouts.jfxflexbox.FlexBoxPane;
 import com.sgp.dao.CursoDAO;
 import com.sgp.model.Curso;
 
@@ -56,15 +56,11 @@ public class CursosController implements Initializable {
     private void showCursos() {
         CursoDAO cursoDAO = new CursoDAO();
         List<Curso> listAllCursos = cursoDAO.getCursos();
-        FlexBox flexBox = new FlexBox();
+        FlexBoxPane flexBox = new FlexBoxPane();
         
         listAllCursos.forEach((Curso c) -> {
-            Pane pane = new Pane();
-            pane.getChildren().add(new Label(c.getCurso()));
-            //pane.setBackground(new BackgroundFill(Paint.valueOf("#f8f8f8"), null, null));
             
-            flexBox.getChildren().add(pane);
-            FlexBox.setGrow(pane, 10);
+            flexBox.getChildren().add(new Label("c.getCurso()"));
         });
         container.getChildren().add(flexBox);
     }
@@ -74,7 +70,7 @@ public class CursosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showCursosList();
+        //showCursosList();
         showCursos();
     }
     

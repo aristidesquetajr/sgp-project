@@ -29,14 +29,46 @@ public class LoginController implements Initializable {
     @FXML
     private AnchorPane window;
 
+    private String txtUsername, txtPassword;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        makeFadeIn(window);
+    }
+
+    @FXML
+    private void openRecoverPassword(ActionEvent event) {
+        openLoginOrResetPass(window, "RecoverPassword");
+    }
+
+    @FXML
+    private void closeApplication(MouseEvent event) {
+        System.exit(0);
+    }
+
+    private Boolean isEmptyCamps() {
+        Boolean result = false;
+        if(txtUsername.isEmpty()) {
+            result = true;
+            this.txtUser.getStyleClass().add("error-input");
+            
+        }
+
+        if(txtPassword.isEmpty()) {
+            result = true;
+            this.txtPass.getStyleClass().add("error-input");
+        }
+
+        return result;
+    }
+
     @FXML
     private void Login(ActionEvent event) {
-        String txtUsername, txtPassword;
         txtUsername = this.txtUser.getText();
         txtPassword = this.txtPass.getText();
 
         try {
-            if (!(txtUsername.isEmpty() || txtPassword.isEmpty())) {
+            if (!isEmptyCamps()) {
                 Utilizador utilizador = new Utilizador();
                 UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
 
@@ -57,21 +89,6 @@ public class LoginController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    @FXML
-    private void openRecoverPassword(ActionEvent event) {
-        openLoginOrResetPass(window, "RecoverPassword");
-    }
-
-    @FXML
-    private void closeApplication(MouseEvent event) {
-        System.exit(0);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        makeFadeIn(window);
     }
 
 }

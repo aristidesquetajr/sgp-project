@@ -1,6 +1,11 @@
 .root {
     -fx-background-color: linear-gradient(#132743, #223333);
-    -fx-background-radius: 2.5%;
+    -fx-background-radius: 4%;
+    -fx-font-family: 'Robote';
+}
+
+.header {
+    -fx-background-color: rgba(0, 0, 0, .08);
 }
 
 .inputs {
@@ -24,4 +29,12 @@
 
 .efectHover:hover {
     -fx-fill: gray;
+}
+
+.error-input {
+    -fx-border-color: red;
+}
+
+.link:hover {
+    -fx-text-fill: white;
 }
