@@ -1,10 +1,10 @@
 package com.sgp.controllers;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import com.dukescript.layouts.jfxflexbox.FlexBoxPane;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import com.sgp.dao.CursoDAO;
 import com.sgp.model.Curso;
 
@@ -13,9 +13,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 
 /**
@@ -26,43 +26,60 @@ import javafx.scene.layout.Pane;
 public class CursosController implements Initializable {
 
     @FXML
-    private ListView<Curso> listCursos;
+    private JFXListView<Curso> listCursos;
 
     @FXML
-    private TextField txtCurso;
+    private JFXTextField txtCurso;
 
     @FXML
     private Pane container;
 
+    private Curso curso;
+    private CursoDAO cursoDAO;
+
     @FXML
-    private void handleAddCurso(ActionEvent event) {
+    private void handleButtonAddCurso(ActionEvent event) {
         String textCurso = this.txtCurso.getText();
-        if(!(textCurso.isEmpty())) {
-            Curso curso = new Curso();
+        if (!(textCurso.isEmpty())) {
+            Alert hasConfirmation = new Alert(AlertType.CONFIRMATION, "adicionar novo item?");
+            hasConfirmation.show();
+
+            curso = new Curso();
             curso.setCurso(textCurso);
-            CursoDAO cursoDAO = new CursoDAO();
+            cursoDAO = new CursoDAO();
             cursoDAO.createdCurso(curso);
             showCursosList();
+
+        } else {
+            new Alert(AlertType.WARNING, "Campo vazio").show();
         }
     }
-    
+
+    @FXML
+    void handleButtonDeletar(ActionEvent event) {
+        ObservableList<Curso> selectCursos, cursoSelected;
+        selectCursos = listCursos.getSelectionModel().getSelectedItems();
+        cursoSelected = listCursos.getItems();
+        String message = "";
+        for (Curso cursoItem : selectCursos) {
+            // Comando para deletar
+            message += cursoItem.getCurso() + "\n";
+        }
+        new Alert(Alert.AlertType.INFORMATION, message).show();
+
+        selectCursos.forEach(cursoSelected::remove); // remove apenas na tabela
+    }
+
+    @FXML
+    void handleButtonEditar(ActionEvent event) {
+        new Alert(AlertType.INFORMATION, "Ainda não foi configurado").show();
+    }
+
     private void showCursosList() {
-        CursoDAO cursoDAO = new CursoDAO();
+        cursoDAO = new CursoDAO();
         ObservableList<Curso> obsCursos = FXCollections.observableArrayList();
         obsCursos.addAll(cursoDAO.getCursos());
         this.listCursos.setItems(obsCursos);
-    }
-
-    private void showCursos() {
-        CursoDAO cursoDAO = new CursoDAO();
-        List<Curso> listAllCursos = cursoDAO.getCursos();
-        FlexBoxPane flexBox = new FlexBoxPane();
-        
-        listAllCursos.forEach((Curso c) -> {
-            
-            flexBox.getChildren().add(new Label("c.getCurso()"));
-        });
-        container.getChildren().add(flexBox);
     }
 
     /**
@@ -70,8 +87,8 @@ public class CursosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //showCursosList();
-        showCursos();
+        listCursos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);;
+        showCursosList();
     }
-    
+
 }

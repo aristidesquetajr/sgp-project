@@ -4,6 +4,11 @@
     -fx-background-color: #001233;
 }
 
+#logo {
+    -fx-background-color: rgba(0, 0, 0, 0.123);
+    
+}
+
 .items-menu {
     -fx-pref-width: 52px;
     -fx-background-color: #00183F;
@@ -15,7 +20,6 @@
     -fx-border-width: 0 0 0 6px;
     -fx-border-style: solid;
     -fx-border-color: #ffffff;
-    -fx-position: absolute;
 }
 
 

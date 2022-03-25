@@ -46,48 +46,33 @@ public class LoginController implements Initializable {
         System.exit(0);
     }
 
-    private Boolean isEmptyCamps() {
-        Boolean result = false;
-        if(txtUsername.isEmpty()) {
-            result = true;
-            this.txtUser.getStyleClass().add("error-input");
-            
-        }
-
-        if(txtPassword.isEmpty()) {
-            result = true;
-            this.txtPass.getStyleClass().add("error-input");
-        }
-
-        return result;
-    }
-
     @FXML
     private void Login(ActionEvent event) {
         txtUsername = this.txtUser.getText();
         txtPassword = this.txtPass.getText();
 
         try {
-            if (!isEmptyCamps()) {
-                Utilizador utilizador = new Utilizador();
-                UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
+            Utilizador utilizador = new Utilizador();
+            UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
 
-                utilizador.setUsername(txtUsername);
-                utilizador.setPassword(txtPassword);
+            utilizador.setUsername(txtUsername);
+            utilizador.setPassword(txtPassword);
 
-                if (utilizadorDAO.getAccess(utilizador)) {
-                    System.out.println("Entrou");
-                    makeFadeOut(window);
-                    new OpenWindow("MainPainel", "Gestão de Propina");
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("Username or Password is incorret");
-                    alert.show();
-                    System.out.println("Username or Password is incorret");
-                }
+            if (utilizadorDAO.getAccess(utilizador)) {
+                System.out.println("Entrou");
+                makeFadeOut(window);
+                new OpenWindow("MainPainel", "Gestão de Propina");
+            } else {
+                this.txtUser.getStyleClass().add("error-input");
+                this.txtPass.getStyleClass().add("error-input");
+                
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Username or Password is incorret");
+                alert.show();
+                System.out.println("Username or Password is incorret");
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 

@@ -1,7 +1,6 @@
 .root {
     -fx-background-color: linear-gradient(#132743, #223333);
     -fx-background-radius: 4%;
-    -fx-font-family: 'Robote';
 }
 
 .header {
@@ -32,7 +31,7 @@
 }
 
 .error-input {
-    -fx-border-color: red;
+    -fx-border-color: #bd0000;
 }
 
 .link:hover {

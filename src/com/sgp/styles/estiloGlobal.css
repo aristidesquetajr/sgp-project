@@ -1,3 +1,15 @@
-.title-pag {
-    -fx-background-color: #343746;
+.root {
+    -fx-background-color: #9eb3d3;
+}
+
+.btnSave {
+    -fx-background-color: green;
+}
+
+.btnEdit {
+    -fx-background-color: blue;
+}
+
+.btnDelete {
+    -fx-background-color: red;
 }

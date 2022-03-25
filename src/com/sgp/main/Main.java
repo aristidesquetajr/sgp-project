@@ -9,11 +9,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        new OpenWindow("Login", "Login");
+        new OpenWindow("MainPainel", "Login");
     }
     
    public static void main(String[] args) {
         launch(args);
-    };
+    }
 
 }
