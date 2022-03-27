@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import com.sgp.dao.CursoDAO;
 import com.sgp.dao.PessoaDAO;
@@ -13,6 +14,8 @@ import com.sgp.model.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ToggleGroup;
 
 /**
  * FXML Controller class
@@ -25,10 +28,16 @@ public class EstudantesController implements Initializable {
     private JFXComboBox<Curso> cmbCurso;
 
     @FXML
-    private JFXComboBox<String> cmbGenero, cmbClasse;
+    private JFXComboBox<String> cmbClasse;
 
     @FXML
     private JFXTextField txtFullName, txtEmail;
+
+    @FXML
+    private DatePicker dataNascimento;
+
+    @FXML
+    private ToggleGroup genero;
 
     private CursoDAO cursoDAO;
 
@@ -37,7 +46,13 @@ public class EstudantesController implements Initializable {
         Pessoa pessoa = new Pessoa();
         PessoaDAO pessoaDAO = new PessoaDAO();
 
-        if (getInfoPessoa(pessoa, pessoaDAO)) {
+        JFXRadioButton generoRadio = (JFXRadioButton) genero.getSelectedToggle();
+
+        pessoa.setNome(this.txtFullName.getText());
+        pessoa.setGenero(generoRadio.getText());
+        pessoa.setEmail(this.txtEmail.getText());
+
+        if (pessoaDAO.cadastrarPessoa(pessoa)) {
             /*
              * Aluno aluno = new Aluno();
              * Classe classe = new Classe();
@@ -62,25 +77,10 @@ public class EstudantesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cmbGenero.getItems().addAll("Masculino", "Femenino");
         cmbClasse.getItems().addAll("10ª Classe", "11ª Classe", "12ª Classe", "13ª Classe");
 
         cursoDAO = new CursoDAO();
         cmbCurso.getItems().addAll(cursoDAO.getCursos());
     }
 
-    private Boolean getInfoPessoa(Pessoa pessoa, PessoaDAO pessoaDAO) {
-        try {
-            pessoa.setNome(this.txtFullName.getText());
-            pessoa.setGenero(this.cmbGenero.getValue());
-            pessoa.setEmail(this.txtEmail.getText());
-
-            
-            
-            return pessoaDAO.cadastrarPessoa(pessoa);
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        return false;
-    }
 }

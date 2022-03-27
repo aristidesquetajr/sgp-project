@@ -1,5 +1,6 @@
-.root {
-    -fx-background-color: #9eb3d3;
+.container {
+    /* -fx-background-color: #9eb3d3; */
+    -fx-background-color: #41567E;
 }
 
 .btnSave {

@@ -9,7 +9,3 @@
     -fx-padding: 0 0 10 0;
     -fx-text-fill: white !important;
 }
-
-GridPane Label {
-    -fx-text-fill: white;
-}
