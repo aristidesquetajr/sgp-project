@@ -10,6 +10,7 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -19,15 +20,19 @@ import javafx.util.Duration;
 public class Animations {
 
 
-    public static void makeFadeIn(AnchorPane rootPane) {
-        FadeTransition fadeTransition = makeFadeAnimation(rootPane);
+    public static void makeFadeIn(Node rootPane, int time) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.seconds(time));
+        fadeTransition.setNode(rootPane);
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
     }
 
-    public static void makeFadeOut(AnchorPane rootPane) {
-        FadeTransition fadeTransition = makeFadeAnimation(rootPane);
+    public static void makeFadeOut(Node rootPane, int time) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.seconds(5));
+        fadeTransition.setNode(rootPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
@@ -35,13 +40,6 @@ public class Animations {
             Stage currentStage = (Stage) rootPane.getScene().getWindow();
             currentStage.hide();
         });
-    }
-
-    private static FadeTransition makeFadeAnimation(AnchorPane rootPane) {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(5));
-        fadeTransition.setNode(rootPane);        
-        return fadeTransition;
     }
 
     public static void openLoginOrResetPass(AnchorPane rootPane, String source) {

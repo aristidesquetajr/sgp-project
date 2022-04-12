@@ -19,7 +19,7 @@ public class PessoaDAO extends Conexao {
             stmt.setString(1, pessoa.getNome());
             stmt.setString(2, pessoa.getEmail());
             stmt.setString(3, pessoa.getGenero());
-            stmt.setString(4, pessoa.getNascimento());
+            stmt.setDate(4, pessoa.getNascimento());
             return stmt.execute() ? false : true;
         } catch(SQLException e) {
             System.out.println("Erro no cadastro: " + e.getMessage());
@@ -39,7 +39,7 @@ public class PessoaDAO extends Conexao {
                 pessoa.setNome(res.getString("nome"));
                 pessoa.setEmail(res.getString("email"));
                 pessoa.setGenero(res.getString("genero"));
-                pessoa.setNascimento(res.getString("nascimento"));
+                pessoa.setNascimento(res.getDate("nascimento"));
             }
             
             return pessoa;
@@ -47,17 +47,5 @@ public class PessoaDAO extends Conexao {
             System.out.println("Error: " + e.getMessage());
         }
         return null;
-    }
-
-    public int getLastIdCreated() {
-        String sql = "SELECT * FROM Pessoa ORDER BY idPessoa DESC LIMIT 1";
-        try {
-            stmt = getConnection().prepareStatement(sql);
-            res = stmt.executeQuery();
-            return res.isFirst() ? res.getInt("idPessoa") : -1;
-        } catch (Exception e) {
-            System.out.println("error: " + e.getMessage());
-        }
-        return -1;
     }
 }

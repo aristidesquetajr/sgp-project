@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
@@ -10,136 +11,88 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="570.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="628.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
    <children>
-      <BorderPane prefHeight="570.0" prefWidth="1043.0">
+      <BorderPane prefHeight="628.0" prefWidth="1043.0">
          <left>
             <Pane prefHeight="534.0" prefWidth="177.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
                <children>
-                  <Pane id="logo" layoutX="-1.0" layoutY="-2.0" prefHeight="63.0" prefWidth="178.0">
+                  <VBox layoutX="-5.0" layoutY="-3.0" prefHeight="437.0" prefWidth="175.0" spacing="3.0">
                      <children>
-                        <HBox alignment="CENTER" layoutX="14.0" layoutY="6.0" prefHeight="52.0" prefWidth="127.0" spacing="10.0">
+                        <Pane id="logo" prefHeight="63.0" prefWidth="178.0">
                            <children>
-                              <FontAwesomeIcon fill="WHITE" glyphName="BOOK" size="2em" />
-                              <Label text="GESP" textFill="WHITE">
-                                 <font>
-                                    <Font name="C059-Bold" size="24.0" />
-                                 </font>
-                              </Label>
+                              <HBox alignment="CENTER" layoutX="14.0" layoutY="6.0" prefHeight="52.0" prefWidth="127.0" spacing="10.0">
+                                 <children>
+                                    <FontAwesomeIcon fill="WHITE" glyphName="BOOK" size="2em" />
+                                    <Label text="GESP" textFill="WHITE">
+                                       <font>
+                                          <Font name="C059-Bold" size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="-1.0" layoutY="73.0" onMouseClicked="#openHome" prefHeight="49.0" prefWidth="177.0" styleClass="items-menu">
-                     <children>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="HOME" layoutX="18.0" layoutY="36.0" size="2em" />
-                        <Label alignment="CENTER" layoutX="51.0" layoutY="13.0" prefHeight="26.0" prefWidth="46.0" text="Home" textFill="WHITE">
+                        </Pane>
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#openHome" prefWidth="155.0" styleClass="items-menu" text="Home" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon fill="#c6bdbd" glyphName="HOME" size="2em" />
+                           </graphic>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Roboto" size="13.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-                  <Pane layoutX="-1.0" layoutY="126.0" onMouseClicked="#openEstudantes" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
-                     <children>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="USERS" layoutX="16.0" layoutY="36.0" size="2em" />
-                        <Label alignment="CENTER" layoutX="53.0" layoutY="13.0" prefHeight="26.0" prefWidth="73.0" text="Estudantes" textFill="WHITE">
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="341.0" onAction="#openEstudantes" styleClass="items-menu" text="Estudantes" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon fill="#c6bdbd" glyphName="USERS" size="2em" />
+                           </graphic>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Roboto" size="13.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-                  <Pane layoutY="179.0" onMouseClicked="#openCursos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
-                     <children>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="PASTE" layoutX="15.0" layoutY="36.0" size="2em" />
-                        <Label alignment="CENTER" layoutX="54.0" layoutY="16.0" prefHeight="26.0" prefWidth="48.0" text="Cursos" textFill="WHITE">
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="129.0" onAction="#openCursos" styleClass="items-menu" text="Cursos" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon fill="#c6bdbd" glyphName="PASTE" size="2em" />
+                           </graphic>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Roboto" size="13.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-                  <Pane layoutY="233.0" onMouseClicked="#openPagamentos" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
-                     <children>
-                        <Label alignment="CENTER" layoutX="50.0" layoutY="16.0" prefHeight="26.0" prefWidth="86.0" text="Pagamentos" textFill="WHITE">
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="341.0" onAction="#openPagamentos" styleClass="items-menu" text="Pagamentos" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon fill="#c6bdbd" glyphName="UNIVERSITY" size="2em" />
+                           </graphic>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Roboto" size="13.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="UNIVERSITY" layoutX="14.0" layoutY="36.0" size="2em" />
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-                  <Pane layoutY="287.0" onMouseClicked="#openRelatorio" prefHeight="49.0" prefWidth="150.0" styleClass="items-menu">
-                     <children>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="CALENDAR" layoutX="16.0" layoutY="32.0" size="2em" />
-                        <Label alignment="CENTER_RIGHT" layoutX="51.0" layoutY="13.0" prefHeight="16.0" prefWidth="62.0" text="Relatorio" textFill="WHITE">
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="288.0" onAction="#openRelatorio" styleClass="items-menu" text="Relatorio" textFill="WHITE">
+                           <graphic>
+                              <FontAwesomeIcon fill="#c6bdbd" glyphName="CALENDAR" size="2em" />
+                           </graphic>
                            <font>
-                              <Font name="Arial" size="13.0" />
+                              <Font name="Roboto" size="13.0" />
                            </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
+                        </JFXButton>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Pane>
-                  <Label layoutX="61.0" layoutY="551.0" text="version 1.3" textFill="#616161">
+                  </VBox>
+                  <Label layoutX="61.0" layoutY="609.0" text="version 1.3" textFill="#616161">
                      <font>
                         <Font name="Arial" size="9.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER_LEFT" layoutY="343.0" prefHeight="45.0" prefWidth="171.0" spacing="6.0" styleClass="items-menu">
-                     <children>
-                        <FontAwesomeIcon fill="#c6bdbd" glyphName="HOME" size="2em" />
-                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="46.0" text="Home" textFill="WHITE">
-                           <font>
-                              <Font name="Arial" size="13.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </HBox>
                </children>
             </Pane>
          </left>
          <center>
             <Pane prefHeight="570.0" prefWidth="975.0" translateX="-29.0" BorderPane.alignment="CENTER">
                <children>
-                  <BorderPane prefHeight="570.0" prefWidth="896.0" styleClass="container">
+                  <BorderPane prefHeight="628.0" prefWidth="896.0" styleClass="container">
                      <center>
                         <Pane fx:id="section" prefHeight="488.0" prefWidth="776.0" />
                      </center>

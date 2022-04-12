@@ -9,12 +9,26 @@ import java.util.List;
 import com.sgp.model.Aluno;
 import com.sgp.model.Classe;
 import com.sgp.model.Pessoa;
+import com.sgp.model.Turma;
 
 public class AlunoDAO extends PessoaDAO {
     private PreparedStatement stmt;
+    private String sql;
+
+    public Boolean insertIdAluno() {
+        sql = "INSERT INTO (fkPessoa) " +
+                "(SELECT idPessoa FROM Pessoa ORDER BY idPessoa DESC LIMIT 1)";
+        try {
+            stmt = getConnection().prepareStatement(sql);
+            return stmt.execute() ? false : true;
+        } catch (Exception e) {
+            System.out.println("Erro na insercao do ID, " + e.getMessage());
+        }
+        return false;
+    }
         
-    public boolean makeCadastroAluno(Pessoa pessoa, Aluno aluno, Classe classe) {
-        String sql = "INSERT INTO Aluno (fkPessoa, fkClasse, numAluno, codAluno) values (?, ?, ?, ?)";
+    public boolean CadastrarAluno(Pessoa pessoa, Aluno aluno, Classe classe) {
+        String sql = "UPDATE Aluno set fkClasse = ?, numAluno = ?, codAluno = ? WHERE fkPessoa = ";
         try {
             this.stmt = getConnection().prepareStatement(sql);
             this.stmt.setInt(1, pessoa.getIdPessoa());
@@ -37,20 +51,29 @@ public class AlunoDAO extends PessoaDAO {
             List<Aluno> listAlunos = new ArrayList<>();
             while(res.next()) {
                 Pessoa pessoa = new Pessoa();
+                pessoa.setIdPessoa(res.getInt("idPessoa"));
                 pessoa.setNome(res.getString("nome"));
-                
+                pessoa.setEmail(res.getString("email"));
+
+                Turma turma = new TurmaDAO().searchTurma(res.getInt("fkTurma"));
+
                 Classe classe = new Classe();
+                classe.setIdClasse(res.getInt("idClasse"));
+                classe.setClasse(res.getString("classe"));
                 classe.setSala(res.getInt("sala"));
+                classe.setFkTurma(turma);
                 
                 Aluno aluno = new Aluno();
                 aluno.setFkPessoa(pessoa);
                 aluno.setFkClasse(classe);
-                aluno.setNumAluno(res.getInt("numEstudante"));
+                aluno.setNumAluno(res.getInt("numAluno"));
+                aluno.setCodAluno(res.getInt("codAluno"));
                 
                 listAlunos.add(aluno);
             }
             return listAlunos;
         } catch (SQLException e) {
+            System.out.println("Erro " + e.getMessage());
             return null;
         }
     }

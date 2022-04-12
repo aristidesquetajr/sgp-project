@@ -1,4 +1,8 @@
 .root {
+    -fx-background-color: transparent;
+}
+
+.container {
     -fx-background-color: linear-gradient(#132743, #223333);
     -fx-background-radius: 4%;
 }

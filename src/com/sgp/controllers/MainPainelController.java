@@ -6,81 +6,105 @@ import static com.sgp.util.Animations.makeFadeOut;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.sgp.model.Utilizador;
 import com.sgp.util.OpenWindow;
 
+import br.com.fandrauss.fx.gui.WindowControllerFx;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 
 /**
  * FXML Controller class
  *
  * @author kashiki
  */
-public class MainPainelController implements Initializable {
+public class MainPainelController extends WindowControllerFx {
 
-    @FXML
-    private Label lblTitle;
+    @FXML private Label lblTitle;
+    @FXML private Pane section;
+    @FXML private AnchorPane rootPane;
+        
+    private double xOffset, yOffset;
 
-    @FXML
-    private Pane section;
-
-    @FXML
-    private AnchorPane rootPane;
-
-
+    public MainPainelController(Utilizador utilizador) {
+        System.out.println("Welcome " + utilizador.getFkFuncionario().getFkPessoa().getNome());
+    }
+    
+    @Override
+    public String getFXML() {
+        return "/com/sgp/views/MainPainel.fxml";
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        makeFadeIn(rootPane);
+        makeFadeIn(rootPane, 5);
+        lblTitle.setText("Homepage");
+        new OpenWindow(section, "Home");
+
+        // grab your root here
+        rootPane.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        // root around here
+        rootPane.setOnMouseDragged(event -> {
+            getWindow().setX(event.getScreenX() - xOffset);
+            getWindow().setY(event.getScreenY() - yOffset);
+        });
+    }
+
+    @FXML
+    private void openHome(ActionEvent event) {
         lblTitle.setText("Homepage");
         new OpenWindow(section, "Home");
     }
 
     @FXML
-    private void openHome(MouseEvent event) {
-        lblTitle.setText("Homepage");
-        new OpenWindow(section, "Home");
-    }
-
-    @FXML
-    private void openCursos(MouseEvent event) {
+    private void openCursos(ActionEvent event) {
         lblTitle.setText("Cursos");
         new OpenWindow(section, "Cursos");
     }
 
     @FXML
-    private void openEstudantes(MouseEvent event) {
+    private void openEstudantes(ActionEvent event) {
         lblTitle.setText("Estudantes");
         new OpenWindow(section, "Estudantes");
     }
 
     @FXML
-    void openPagamentos(MouseEvent event) {
+    void openPagamentos(ActionEvent event) {
         lblTitle.setText("Pagamentos");
         new OpenWindow(section, "Pagamentos");
     }
 
     @FXML
-    void openRelatorio(MouseEvent event) {
+    void openRelatorio(ActionEvent event) {
         lblTitle.setText("Relatorios");
         new OpenWindow(section, "Relatorio");
     }
 
     @FXML
     private void Logout(MouseEvent event) throws InterruptedException {
-        makeFadeOut(rootPane);
+        makeFadeOut(rootPane, 2);
         Thread.sleep(2001);
-        new OpenWindow("Login");
+        new LoginController()
+            .setParent(getWindow())
+            .setModality(Modality.APPLICATION_MODAL)
+            .showUndecorated(true);
     }
 
     @FXML
     private void closeApplication(MouseEvent event) {
         System.exit(0);
     }
+
 }

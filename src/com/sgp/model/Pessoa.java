@@ -1,11 +1,13 @@
 package com.sgp.model;
 
+import java.sql.Date;
+
 public class Pessoa {
     private int idPessoa;
     private String nome;
     private String email;
     private String genero;
-    private String nascimento;
+    private Date nascimento;
 
     public int getIdPessoa() {
         return idPessoa;
@@ -39,11 +41,11 @@ public class Pessoa {
         this.genero = genero;
     }
 
-    public String getNascimento() {
+    public Date getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
 }

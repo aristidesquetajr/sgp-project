@@ -7,15 +7,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="window" prefHeight="367.0" prefWidth="450.0" styleClass="root" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.LoginController">
    <children>
-      <BorderPane layoutX="4.0" layoutY="7.0" prefHeight="360.0" prefWidth="442.0">
+      <BorderPane prefHeight="367.0" prefWidth="454.0" styleClass="container">
          <center>
             <Pane prefHeight="247.0" prefWidth="442.0">
                <children>
@@ -24,20 +24,14 @@
                      <font>
                         <Font name="Roboto" size="17.0" />
                      </font>
-                     <effect>
-                        <Reflection />
-                     </effect>
                   </TextField>
                   <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="43.0" layoutY="121.0" size="2em" />
                   <PasswordField fx:id="txtPass" layoutX="42.0" layoutY="96.0" onAction="#Login" prefHeight="33.0" prefWidth="359.0" promptText="Password" styleClass="inputs">
                      <font>
-                        <Font name="Roboto" size="17.0" />
+                        <Font name="Roboto" size="14.0" />
                      </font>
-                     <effect>
-                        <Reflection />
-                     </effect>
                   </PasswordField>
-                  <JFXButton buttonType="RAISED" layoutX="141.0" layoutY="172.0" onAction="#Login" prefHeight="50.0" prefWidth="162.0" styleClass="btnLogin" text="Login">
+                  <JFXButton buttonType="RAISED" layoutX="136.0" layoutY="200.0" onAction="#Login" prefHeight="42.0" prefWidth="171.0" styleClass="btnLogin" text="Login">
                      <font>
                         <Font name="Roboto Bold" size="20.0" />
                      </font>
@@ -50,12 +44,21 @@
          <top>
             <Pane prefHeight="50.0" prefWidth="442.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="175.0" text="GESP" textFill="#f2f2f2">
-                     <font>
-                        <Font name="Roboto Slab Bold" size="36.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="410.0" layoutY="31.0" onMouseClicked="#closeApplication" size="1.8em" styleClass="efectHover">
+                  <Pane layoutX="157.0" layoutY="-2.0">
+                     <children>
+                        <HBox alignment="CENTER" layoutY="4.0" spacing="5.0">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="BOOK" size="2.5em" />
+                              <Label text="GESP" textFill="#f2f2f2">
+                                 <font>
+                                    <Font name="Roboto Slab Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="410.0" layoutY="33.0" onMouseClicked="#closeApplication" size="1.8em" styleClass="efectHover">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -66,7 +69,7 @@
          <bottom>
             <Pane prefHeight="54.0" prefWidth="442.0" BorderPane.alignment="CENTER">
                <children>
-                  <Hyperlink layoutX="14.0" layoutY="13.0" onAction="#openRecoverPassword" styleClass="link" text="Lost Password?" textFill="#acaaaa">
+                  <Hyperlink layoutX="14.0" layoutY="12.0" onAction="#openRecoverPassword" styleClass="link" text="Lost Password?" textFill="#acaaaa">
                      <font>
                         <Font name="Roboto Bold" size="14.0" />
                      </font>
