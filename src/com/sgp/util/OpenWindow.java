@@ -47,7 +47,7 @@ public class OpenWindow {
     public OpenWindow(Pane pane, String source) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/sgp/views/" + source + ".fxml"));
-            pane.getChildren().removeAll(pane.getChildren());
+            pane.getChildren().clear();
             pane.getChildren().add(root);
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

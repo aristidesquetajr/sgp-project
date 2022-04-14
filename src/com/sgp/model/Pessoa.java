@@ -48,4 +48,9 @@ public class Pessoa {
     public void setNascimento(Date nascimento) {
         this.nascimento = nascimento;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

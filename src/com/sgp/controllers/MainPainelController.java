@@ -31,6 +31,10 @@ public class MainPainelController extends WindowControllerFx {
         
     private double xOffset, yOffset;
 
+    public MainPainelController() {
+
+    }
+
     public MainPainelController(Utilizador utilizador) {
         System.out.println("Welcome " + utilizador.getFkFuncionario().getFkPessoa().getNome());
     }
@@ -45,7 +49,7 @@ public class MainPainelController extends WindowControllerFx {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        makeFadeIn(rootPane, 5);
+        /* makeFadeIn(rootPane, 5); */
         lblTitle.setText("Homepage");
         new OpenWindow(section, "Home");
 

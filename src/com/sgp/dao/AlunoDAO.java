@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.sgp.model.Aluno;
 import com.sgp.model.Classe;
+import com.sgp.model.Curso;
 import com.sgp.model.Pessoa;
 import com.sgp.model.Turma;
 
@@ -54,13 +55,21 @@ public class AlunoDAO extends PessoaDAO {
                 pessoa.setIdPessoa(res.getInt("idPessoa"));
                 pessoa.setNome(res.getString("nome"));
                 pessoa.setEmail(res.getString("email"));
+                pessoa.setGenero(res.getString("genero"));
 
-                Turma turma = new TurmaDAO().searchTurma(res.getInt("fkTurma"));
+                Turma turma = new Turma();
+                turma.setIdTurma(res.getInt("idTurma"));
+                turma.setTurma(res.getString("turma"));
+
+                Curso curso = new Curso();
+                curso.setIdCurso(res.getInt("idCurso"));
+                curso.setCurso(res.getString("curso"));
 
                 Classe classe = new Classe();
                 classe.setIdClasse(res.getInt("idClasse"));
                 classe.setClasse(res.getString("classe"));
                 classe.setSala(res.getInt("sala"));
+                classe.setFkCurso(curso);
                 classe.setFkTurma(turma);
                 
                 Aluno aluno = new Aluno();

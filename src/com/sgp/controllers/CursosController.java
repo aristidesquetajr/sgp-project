@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXTextField;
 import com.sgp.dao.CursoDAO;
 import com.sgp.model.Curso;
 
@@ -14,8 +13,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 /**
@@ -29,7 +29,7 @@ public class CursosController implements Initializable {
     private JFXListView<Curso> listCursos;
 
     @FXML
-    private JFXTextField txtCurso;
+    private TextField txtCurso;
 
     @FXML
     private Pane container;

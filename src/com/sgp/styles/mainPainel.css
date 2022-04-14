@@ -23,7 +23,7 @@
     -fx-border-color: transparent;
     -fx-padding: 0 0 0 1.3em;
     -fx-cursor: hand;
-    -fx-alignment: left;
+    -fx-alignment: baseline_left;
 }
 
 .items-menu:hover {

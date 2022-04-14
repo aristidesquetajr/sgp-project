@@ -9,12 +9,12 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -29,7 +29,7 @@ public class RecoverPasswordController implements Initializable {
     }
 
     @FXML
-    private void backLogin(MouseEvent event) {
+    private void backLogin(ActionEvent event) {
         /* openLoginOrResetPass(rootPane, "Login"); */
         try {
             URI src = Paths.get("src/com/sgp/views/" + "Login" +".fxml").toAbsolutePath().toUri();

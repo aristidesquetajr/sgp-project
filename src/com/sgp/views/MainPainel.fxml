@@ -7,6 +7,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -81,7 +83,7 @@
                         </JFXButton>
                      </children>
                   </VBox>
-                  <Label layoutX="61.0" layoutY="609.0" text="version 1.3" textFill="#616161">
+                  <Label layoutX="61.0" layoutY="609.0" text="version 1.5" textFill="#616161">
                      <font>
                         <Font name="Arial" size="9.0" />
                      </font>
@@ -97,14 +99,14 @@
                         <Pane fx:id="section" prefHeight="488.0" prefWidth="776.0" />
                      </center>
                      <top>
-                        <Pane prefHeight="46.0" prefWidth="820.0" styleClass="header" BorderPane.alignment="CENTER">
+                        <Pane prefHeight="60.0" prefWidth="896.0" styleClass="header" BorderPane.alignment="CENTER">
                            <children>
                               <Label fx:id="lblTitle" layoutX="27.0" layoutY="9.0" text="Homepage" textFill="WHITE">
                                  <font>
                                     <Font name="Roboto" size="24.0" />
                                  </font>
                               </Label>
-                              <HBox alignment="CENTER" layoutX="796.0" layoutY="11.0" spacing="8.0">
+                              <HBox alignment="CENTER" layoutX="742.0" layoutY="11.0" spacing="8.0">
                                  <children>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" onMouseClicked="#Logout" size="2em" styleClass="efectHover">
                                        <cursor>
@@ -116,6 +118,14 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </FontAwesomeIcon>
+                                    <ImageView fitHeight="42.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/macaco.png" />
+                                       </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ImageView>
                                     <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" onMouseClicked="#closeApplication" size="2em" styleClass="efectHover">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
