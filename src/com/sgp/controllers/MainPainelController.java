@@ -1,7 +1,7 @@
 package com.sgp.controllers;
 
-import static com.sgp.util.Animations.makeFadeIn;
 import static com.sgp.util.Animations.makeFadeOut;
+import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +10,7 @@ import com.sgp.model.Utilizador;
 import com.sgp.util.OpenWindow;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -104,6 +105,15 @@ public class MainPainelController extends WindowControllerFx {
             .setParent(getWindow())
             .setModality(Modality.APPLICATION_MODAL)
             .showUndecorated(true);
+    }
+
+    @FXML
+    private void changeCloseIcon(MouseEvent event) {
+        FontAwesomeIcon icon = (FontAwesomeIcon) event.getSource();
+        if (event.getEventType() == MOUSE_ENTERED)
+            icon.setGlyphName("TIMES_CIRCLE");
+        else 
+            icon.setGlyphName("CIRCLE");
     }
 
     @FXML

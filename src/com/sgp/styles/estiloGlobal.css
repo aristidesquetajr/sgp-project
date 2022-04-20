@@ -14,3 +14,12 @@
 .btnDelete {
     -fx-background-color: red;
 }
+
+
+.btnClose {
+    -fx-fill: white;
+}
+
+.btnClose:hover {
+    -fx-fill: #ddd;
+}

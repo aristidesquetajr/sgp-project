@@ -2,6 +2,7 @@ package com.sgp.controllers;
 
 import static com.sgp.util.Animations.makeFadeIn;
 import static com.sgp.util.Animations.makeFadeOut;
+import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
 
 import java.net.URI;
 import java.net.URL;
@@ -12,6 +13,7 @@ import com.sgp.dao.UtilizadorDAO;
 import com.sgp.model.Utilizador;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,9 +24,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -101,6 +103,15 @@ public class LoginController extends WindowControllerFx {
     @FXML
     private void closeApplication(MouseEvent event) {
         System.exit(0);
+    }
+
+    @FXML
+    private void changeCloseIcon(MouseEvent event) {
+        FontAwesomeIcon icon = (FontAwesomeIcon) event.getSource();
+        if (event.getEventType() == MOUSE_ENTERED)
+            icon.setGlyphName("TIMES_CIRCLE");
+        else 
+            icon.setGlyphName("CIRCLE");
     }
 
     @FXML

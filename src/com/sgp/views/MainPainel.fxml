@@ -126,7 +126,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </ImageView>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" onMouseClicked="#closeApplication" size="2em" styleClass="efectHover">
+                                    <FontAwesomeIcon fill="WHITE" glyphName="CIRCLE" onMouseClicked="#closeApplication" onMouseEntered="#changeCloseIcon" onMouseExited="#changeCloseIcon" size="2em" styleClass="btnClose">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>

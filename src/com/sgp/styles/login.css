@@ -11,6 +11,14 @@
     -fx-background-color: rgba(0, 0, 0, .08);
 }
 
+.btnClose {
+    -fx-fill: white;
+}
+
+.btnClose:hover {
+    -fx-fill: #ddd;
+}
+
 .inputs {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -20,22 +28,14 @@
     -fx-padding: 0 0 0 24px;
 }
 
-.btnLogin {
+.submit {
     -fx-background-color: #223354;
-    -fx-background-radius: 10%;
+    -fx-background-radius: 5%;
     -fx-text-fill: white;
 }
 
-.btnLogin:hover {
+.submit:hover {
     -fx-background-color: #1F2A4F;
-}
-
-.efectHover:hover {
-    -fx-fill: gray;
-}
-
-.error-input {
-    -fx-border-color: #bd0000;
 }
 
 .link:hover {
