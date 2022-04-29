@@ -10,6 +10,7 @@ import com.sgp.model.Utilizador;
 import com.sgp.util.OpenWindow;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
+import static com.sgp.util.Animations.makeFadeIn;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,6 +32,7 @@ public class MainPainelController extends WindowControllerFx {
     @FXML private AnchorPane rootPane;
         
     private double xOffset, yOffset;
+    private Utilizador resUtilizador;
 
     public MainPainelController() {
 
@@ -38,6 +40,7 @@ public class MainPainelController extends WindowControllerFx {
 
     public MainPainelController(Utilizador utilizador) {
         System.out.println("Welcome " + utilizador.getFkFuncionario().getFkPessoa().getNome());
+        resUtilizador = utilizador;
     }
     
     @Override
@@ -50,7 +53,7 @@ public class MainPainelController extends WindowControllerFx {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /* makeFadeIn(rootPane, 5); */
+        makeFadeIn(rootPane, 5);
         lblTitle.setText("Homepage");
         new OpenWindow(section, "Home");
 

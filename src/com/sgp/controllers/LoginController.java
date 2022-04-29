@@ -122,7 +122,7 @@ public class LoginController extends WindowControllerFx {
             resultUtilizador = utilizadorDAO.getAccess(utilizador);
             
             if (resultUtilizador.getLogado() == 1) {
-                makeFadeOut(window, 2);
+                makeFadeOut(window, 1);
                 new MainPainelController(resultUtilizador)
                     .setParent(getWindow())
                     .setModality(Modality.APPLICATION_MODAL)

@@ -1,6 +1,36 @@
 {
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ],
-    "java.dependency.packagePresentation": "hierarchical"
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar"
+        ],
+        "exclude": [
+            "/sgp-project/dist/lib/FlexBoxFX-0.1.5.3-SNAPSHOT.jar",
+            "/sgp-project/lib/FlexBoxFX-0.1.5.3-SNAPSHOT.jar",
+            "/sgp-project/lib/WindowControllerFx.jar",
+            "/sgp-project/dist/lib/WindowControllerFx.jar",
+            "/sgp-project/lib/fontawesomefx-8.2.jar",
+            "/sgp-project/dist/lib/javafx-swt.jar",
+            "/sgp-project/lib/JavaFx/javafx-swt.jar",
+            "/sgp-project/dist/lib/javafx.base.jar",
+            "/sgp-project/dist/lib/fontawesomefx-8.2.jar",
+            "/sgp-project/lib/JavaFx/javafx.base.jar",
+            "/sgp-project/sgp-project.jar",
+            "/sgp-project/dist/sgp-project.jar",
+            "/sgp-project/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar",
+            "/sgp-project/lib/mysql-connector-java-5.1.23-bin.jar",
+            "/sgp-project/dist/lib/mysql-connector-java-5.1.23-bin.jar",
+            "/sgp-project/lib/jfxflexbox-0.2.jar",
+            "/sgp-project/dist/lib/jfxflexbox-0.2.jar",
+            "/sgp-project/lib/jfoenix-9.0.10.jar",
+            "/sgp-project/dist/lib/jfoenix-9.0.10.jar",
+            "/sgp-project/lib/jfoenix-8.0.10.jar",
+            "/sgp-project/dist/lib/jfoenix-8.0.10.jar",
+            "/sgp-project/lib/JavaFx/javafx.web.jar",
+            "/sgp-project/dist/lib/javafx.web.jar",
+            "/sgp-project/lib/JavaFx/javafx.swing.jar",
+            "/sgp-project/dist/lib/javafx.swing.jar",
+            "/sgp-project/lib/JavaFx/javafx.media.jar",
+            "/sgp-project/dist/lib/javafx.media.jar"
+        ]
+    }
 }

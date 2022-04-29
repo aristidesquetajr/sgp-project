@@ -31,7 +31,7 @@ public class Animations {
 
     public static void makeFadeOut(Node rootPane, int time) {
         FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(5));
+        fadeTransition.setDuration(Duration.seconds(time));
         fadeTransition.setNode(rootPane);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);

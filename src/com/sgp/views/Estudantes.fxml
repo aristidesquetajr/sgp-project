@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
@@ -28,7 +29,7 @@
             <Insets />
          </opaqueInsets>
       </TableView>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="740.0" spacing="10.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="809.0" spacing="10.0">
          <children>
             <TextField prefHeight="39.0" prefWidth="432.0" promptText="campo de busca" />
             <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" rotate="90.0" size="2.5em" translateX="-45.0">
@@ -37,6 +38,7 @@
                </cursor>
             </FontAwesomeIcon>
             <ComboBox prefHeight="38.0" prefWidth="264.0" />
+            <JFXButton prefHeight="43.0" prefWidth="105.0" text="Add" textFill="WHITE" />
          </children>
          <opaqueInsets>
             <Insets />

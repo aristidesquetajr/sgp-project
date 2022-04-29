@@ -22,7 +22,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="41.0" layoutY="46.0" size="2em" />
                   <TextField fx:id="txtUser" layoutX="41.0" layoutY="21.0" onAction="#Login" prefHeight="33.0" prefWidth="360.0" promptText="Username" styleClass="inputs">
                      <font>
-                        <Font name="Roboto" size="17.0" />
+                        <Font name="Roboto" size="16.0" />
                      </font>
                   </TextField>
                   <FontAwesomeIcon fill="WHITE" glyphName="LOCK" layoutX="43.0" layoutY="121.0" size="2em" />
@@ -31,9 +31,9 @@
                         <Font name="Roboto" size="14.0" />
                      </font>
                   </PasswordField>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="47.0" layoutY="181.0" onAction="#Login" prefHeight="46.0" prefWidth="360.0" styleClass="submit" text="Login">
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="42.0" layoutY="181.0" onAction="#Login" prefHeight="46.0" prefWidth="366.0" styleClass="submit" text="Login">
                      <font>
-                        <Font name="Roboto" size="20.0" />
+                        <Font name="Roboto Bold" size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -69,7 +69,7 @@
          <bottom>
             <Pane prefHeight="61.0" prefWidth="454.0" BorderPane.alignment="CENTER">
                <children>
-                  <Hyperlink layoutX="14.0" layoutY="13.0" onAction="#openRecoverPassword" styleClass="link" text="Lost Password?" textFill="#acaaaa">
+                  <Hyperlink layoutX="14.0" layoutY="14.0" onAction="#openRecoverPassword" styleClass="link" text="Lost Password?" textFill="#acaaaa">
                      <font>
                         <Font name="Roboto Bold" size="14.0" />
                      </font>
