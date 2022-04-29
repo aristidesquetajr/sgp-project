@@ -10,13 +10,19 @@ import com.sgp.model.Utilizador;
 import com.sgp.util.OpenWindow;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXNodesList;
+import static com.sgp.util.Animations.makeFadeIn;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 
 /**
@@ -26,11 +32,17 @@ import javafx.stage.Modality;
  */
 public class MainPainelController extends WindowControllerFx {
 
-    @FXML private Label lblTitle;
-    @FXML private Pane section;
-    @FXML private AnchorPane rootPane;
-        
+    @FXML
+    private Label lblTitle;
+    @FXML
+    private Pane section;
+    @FXML
+    private AnchorPane rootPane;
+
     private double xOffset, yOffset;
+    private Utilizador resUtilizador;
+    @FXML
+    private HBox menuTop;
 
     public MainPainelController() {
 
@@ -38,19 +50,20 @@ public class MainPainelController extends WindowControllerFx {
 
     public MainPainelController(Utilizador utilizador) {
         System.out.println("Welcome " + utilizador.getFkFuncionario().getFkPessoa().getNome());
+        resUtilizador = utilizador;
     }
-    
+
     @Override
     public String getFXML() {
         return "/com/sgp/views/MainPainel.fxml";
     }
-    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /* makeFadeIn(rootPane, 5); */
+        makeFadeIn(rootPane, 5);
         lblTitle.setText("Homepage");
         new OpenWindow(section, "Home");
 
@@ -65,6 +78,8 @@ public class MainPainelController extends WindowControllerFx {
             getWindow().setX(event.getScreenX() - xOffset);
             getWindow().setY(event.getScreenY() - yOffset);
         });
+
+        createMenuUser();
     }
 
     @FXML
@@ -102,23 +117,46 @@ public class MainPainelController extends WindowControllerFx {
         makeFadeOut(rootPane, 2);
         Thread.sleep(2001);
         new LoginController()
-            .setParent(getWindow())
-            .setModality(Modality.APPLICATION_MODAL)
-            .showUndecorated(true);
+                .setParent(getWindow())
+                .setModality(Modality.APPLICATION_MODAL)
+                .showUndecorated(true);
     }
 
     @FXML
     private void changeCloseIcon(MouseEvent event) {
         FontAwesomeIcon icon = (FontAwesomeIcon) event.getSource();
-        if (event.getEventType() == MOUSE_ENTERED)
+        if (event.getEventType() == MOUSE_ENTERED) {
             icon.setGlyphName("TIMES_CIRCLE");
-        else 
+        } else {
             icon.setGlyphName("CIRCLE");
+        }
     }
 
     @FXML
     private void closeApplication(MouseEvent event) {
         System.exit(0);
+    }
+
+    private void createMenuUser() {
+        try {
+            Image avatar = new Image(getClass().getResourceAsStream("/com/sgp/images/macaco.png"));
+
+            JFXButton btn = new JFXButton("Icon");
+            
+            
+            JFXButton btnConfig = new JFXButton("Configure");
+            JFXButton btnExit = new JFXButton("Exit");
+
+            JFXNodesList nodeList = new JFXNodesList();
+            nodeList.setSpacing(10);
+            nodeList.addAnimatedNode(btn);
+            nodeList.addAnimatedNode(btnConfig);
+
+            menuTop.getChildren().addAll(nodeList);
+        } catch (Exception e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+
     }
 
 }

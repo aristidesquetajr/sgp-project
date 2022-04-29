@@ -12,7 +12,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            new LoginController()
+            new MainPainelController()
                 .setStage(stage)
                 .setModality(Modality.APPLICATION_MODAL)
                 .showUndecorated(true);
@@ -23,6 +23,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        System.out.println("Hello friend's :)");
         launch(args);
     }
     

@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="442.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <BorderPane layoutX="-4.0" prefHeight="442.0" prefWidth="858.0">
-         <center>
-            <Pane prefHeight="302.0" prefWidth="858.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Pane layoutX="29.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="29.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="269.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="513.0" layoutY="39.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="269.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-                  <Pane layoutX="513.0" layoutY="193.0" prefHeight="109.0" prefWidth="200.0" styleClass="box" />
-               </children>
-            </Pane>
-         </center>
-      </BorderPane>
-   </children>
+<AnchorPane prefHeight="442.0" prefWidth="643.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
-      <URL value="@../styles/estiloGlobal.css" />
       <URL value="@../styles/home.css" />
+      <URL value="@../styles/estiloGlobal.css" />
    </stylesheets>
+   <children>
+      <Label layoutX="65.0" layoutY="33.0" prefHeight="96.0" prefWidth="458.0" text="Welcome: " />
+   </children>
 </AnchorPane>

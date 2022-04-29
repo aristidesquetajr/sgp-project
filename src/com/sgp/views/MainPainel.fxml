@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="628.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="700.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
    <children>
-      <BorderPane prefHeight="628.0" prefWidth="1043.0">
+      <BorderPane prefHeight="700.0" prefWidth="1043.0">
          <left>
             <Pane prefHeight="534.0" prefWidth="177.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
                <children>
@@ -38,7 +38,7 @@
                               </HBox>
                            </children>
                         </Pane>
-                        <JFXButton alignment="BASELINE_LEFT" onAction="#openHome" prefWidth="155.0" styleClass="items-menu" text="Home" textFill="WHITE">
+                        <JFXButton alignment="BASELINE_LEFT" onAction="#openHome" prefWidth="155.0" ripplerFill="#0000004c" styleClass="items-menu" text="Home" textFill="WHITE">
                            <graphic>
                               <FontAwesomeIcon fill="#c6bdbd" glyphName="HOME" size="2em" />
                            </graphic>
@@ -83,37 +83,27 @@
                         </JFXButton>
                      </children>
                   </VBox>
-                  <Label layoutX="61.0" layoutY="609.0" text="version 1.5" textFill="#616161">
-                     <font>
-                        <Font name="Arial" size="9.0" />
-                     </font>
-                  </Label>
                </children>
             </Pane>
          </left>
          <center>
             <Pane prefHeight="570.0" prefWidth="975.0" translateX="-29.0" BorderPane.alignment="CENTER">
                <children>
-                  <BorderPane prefHeight="628.0" prefWidth="896.0" styleClass="container">
+                  <BorderPane prefHeight="700.0" prefWidth="896.0" styleClass="container">
                      <center>
-                        <Pane fx:id="section" prefHeight="488.0" prefWidth="776.0" />
+                        <Pane fx:id="section" prefHeight="488.0" prefWidth="896.0" />
                      </center>
                      <top>
                         <Pane prefHeight="60.0" prefWidth="896.0" styleClass="header" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="lblTitle" layoutX="27.0" layoutY="9.0" text="Homepage" textFill="WHITE">
+                              <Label fx:id="lblTitle" layoutX="27.0" layoutY="13.0" text="Homepage" textFill="WHITE">
                                  <font>
                                     <Font name="Roboto" size="24.0" />
                                  </font>
                               </Label>
-                              <HBox alignment="CENTER" layoutX="742.0" layoutY="11.0" spacing="8.0">
+                              <HBox fx:id="menuTop" alignment="CENTER" layoutX="716.0" layoutY="11.0" spacing="8.0">
                                  <children>
                                     <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" onMouseClicked="#Logout" size="2em" styleClass="efectHover">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </FontAwesomeIcon>
-                                    <FontAwesomeIcon fill="WHITE" glyphName="COG" size="2em" styleClass="efectHover">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
