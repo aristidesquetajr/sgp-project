@@ -2,27 +2,24 @@ package com.sgp.controllers;
 
 import static com.sgp.util.Animations.makeFadeOut;
 import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
-
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.sgp.model.Utilizador;
-import com.sgp.util.OpenWindow;
-
 import br.com.fandrauss.fx.gui.WindowControllerFx;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXNodesList;
 import static com.sgp.util.Animations.makeFadeIn;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 
 /**
@@ -38,14 +35,16 @@ public class MainPainelController extends WindowControllerFx {
     private Pane section;
     @FXML
     private AnchorPane rootPane;
-
-    private double xOffset, yOffset;
-    private Utilizador resUtilizador;
     @FXML
-    private HBox menuTop;
+    private JFXButton 
+            btnHome, btnEstudantes,
+            btnCursos, btnPagamentos,
+            btnRelatorios, btnConfigs;
+    
+    private double xOffset, yOffset;
+    Utilizador resUtilizador;
 
     public MainPainelController() {
-
     }
 
     public MainPainelController(Utilizador utilizador) {
@@ -63,57 +62,32 @@ public class MainPainelController extends WindowControllerFx {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        openWindow(new PagamentosController());
         makeFadeIn(rootPane, 5);
-        lblTitle.setText("Homepage");
-        new OpenWindow(section, "Home");
 
         // grab your root here
         rootPane.setOnMousePressed(event -> {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
-
-        // root around here
+        
+        // root around hereg-
         rootPane.setOnMouseDragged(event -> {
             getWindow().setX(event.getScreenX() - xOffset);
             getWindow().setY(event.getScreenY() - yOffset);
         });
-
-        createMenuUser();
+        
+        // Add açao nus Itens do Menu
+        btnHome.setOnAction(e -> openWindow(new HomeController()));
+        btnEstudantes.setOnAction(e -> openWindow(new EstudantesController()));
+        btnCursos.setOnAction(e -> openWindow(new CursosController()));
+        btnPagamentos.setOnAction(e -> openWindow(new PagamentosController()));
+        btnRelatorios.setOnAction(e -> openWindow(new RelatorioController()));
+        btnConfigs.setOnAction(e -> openWindow(new ConfigController()));
     }
 
     @FXML
-    private void openHome(ActionEvent event) {
-        lblTitle.setText("Homepage");
-        new OpenWindow(section, "Home");
-    }
-
-    @FXML
-    private void openCursos(ActionEvent event) {
-        lblTitle.setText("Cursos");
-        new OpenWindow(section, "Cursos");
-    }
-
-    @FXML
-    private void openEstudantes(ActionEvent event) {
-        lblTitle.setText("Estudantes");
-        new OpenWindow(section, "Estudantes");
-    }
-
-    @FXML
-    void openPagamentos(ActionEvent event) {
-        lblTitle.setText("Pagamentos");
-        new OpenWindow(section, "Pagamentos");
-    }
-
-    @FXML
-    void openRelatorio(ActionEvent event) {
-        lblTitle.setText("Relatorios");
-        new OpenWindow(section, "Relatorio");
-    }
-
-    @FXML
-    private void Logout(MouseEvent event) throws InterruptedException {
+    void Logout(ActionEvent event) throws InterruptedException {
         makeFadeOut(rootPane, 2);
         Thread.sleep(2001);
         new LoginController()
@@ -123,7 +97,7 @@ public class MainPainelController extends WindowControllerFx {
     }
 
     @FXML
-    private void changeCloseIcon(MouseEvent event) {
+    void changeCloseIcon(MouseEvent event) {
         FontAwesomeIcon icon = (FontAwesomeIcon) event.getSource();
         if (event.getEventType() == MOUSE_ENTERED) {
             icon.setGlyphName("TIMES_CIRCLE");
@@ -133,30 +107,18 @@ public class MainPainelController extends WindowControllerFx {
     }
 
     @FXML
-    private void closeApplication(MouseEvent event) {
+    void closeApplication(MouseEvent event) {
         System.exit(0);
     }
-
-    private void createMenuUser() {
+    
+    private void openWindow(WindowControllerFx w) {
         try {
-            Image avatar = new Image(getClass().getResourceAsStream("/com/sgp/images/macaco.png"));
-
-            JFXButton btn = new JFXButton("Icon");
-            
-            
-            JFXButton btnConfig = new JFXButton("Configure");
-            JFXButton btnExit = new JFXButton("Exit");
-
-            JFXNodesList nodeList = new JFXNodesList();
-            nodeList.setSpacing(10);
-            nodeList.addAnimatedNode(btn);
-            nodeList.addAnimatedNode(btnConfig);
-
-            menuTop.getChildren().addAll(nodeList);
-        } catch (Exception e) {
-            System.out.println("Erro: " + e.getMessage());
+            lblTitle.setText(w.getTitle());
+            Parent root = FXMLLoader.load(getClass().getResource(w.getFXML()));
+            section.getChildren().clear();
+            section.getChildren().add(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MainPainelController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }

@@ -1,5 +1,6 @@
 package com.sgp.controllers;
 
+import br.com.fandrauss.fx.gui.WindowControllerFx;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,7 +12,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.SelectionMode;
@@ -23,7 +23,7 @@ import javafx.scene.layout.Pane;
  *
  * @author kashiki
  */
-public class CursosController implements Initializable {
+public class CursosController extends WindowControllerFx {
 
     @FXML
     private JFXListView<Curso> listCursos;
@@ -35,8 +35,27 @@ public class CursosController implements Initializable {
     private Pane container;
 
     private Curso curso;
-    private CursoDAO cursoDAO;
+    private CursoDAO cursoDAO;    
 
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        listCursos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);;
+        showCursosList();
+    }
+    
+    @Override
+    public String getFXML() {
+        return "/com/sgp/views/Cursos.fxml";
+    }
+
+    @Override
+    public String getTitle() {
+        return "Cursos";
+    }
+    
     @FXML
     private void handleButtonAddCurso(ActionEvent event) {
         String textCurso = this.txtCurso.getText();
@@ -80,15 +99,6 @@ public class CursosController implements Initializable {
         ObservableList<Curso> obsCursos = FXCollections.observableArrayList();
         obsCursos.addAll(cursoDAO.getCursos());
         this.listCursos.setItems(obsCursos);
-    }
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        listCursos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);;
-        showCursosList();
     }
 
 }

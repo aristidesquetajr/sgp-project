@@ -1,10 +1,15 @@
 
 .table {
-    -fx-background-color: #b9b8b8;
+    -fx-background-color: #a5a5a5;
     -fx-fill: white;
+    -fx-text-fill: white;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-base: #5573A1;
+    -fx-control-inner-background: #C6DCFF;
 }
 
 .table-column {
-    -fx-background-color: #b4c4ce;
-    -fx-padding: 0 0 10 0;
+    #-fx-background-color: #676767;
+    -fx-padding: 5 0 10 5;
 }

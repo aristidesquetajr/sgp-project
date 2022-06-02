@@ -4,9 +4,7 @@ import static com.sgp.util.Animations.makeFadeIn;
 import static com.sgp.util.Animations.makeFadeOut;
 import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
 
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import com.sgp.dao.UtilizadorDAO;
@@ -31,7 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class LoginController extends WindowControllerFx {
@@ -59,7 +56,6 @@ public class LoginController extends WindowControllerFx {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Stage stage = getWindow();
         makeFadeIn(window, 5);
 
         // grab your root here
@@ -70,16 +66,15 @@ public class LoginController extends WindowControllerFx {
 
         // root around here
         window.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
+            getWindow().setX(event.getScreenX() - xOffset);
+            getWindow().setY(event.getScreenY() - yOffset);
         });
     }
     
     @FXML
     private void openRecoverPassword(ActionEvent event) {
         try {
-            URI src = Paths.get("src/com/sgp/views/" + "RecoverPassword" +".fxml").toAbsolutePath().toUri();
-            Parent root = FXMLLoader.load(src.toURL());
+            Parent root = FXMLLoader.load(getClass().getResource(new RecoverPasswordController().getFXML()));
             Scene scene = window.getScene();
             scene.setFill(Color.TRANSPARENT);
 
@@ -94,6 +89,7 @@ public class LoginController extends WindowControllerFx {
             timeline.setOnFinished(event2 -> {
                 window.getChildren().remove(window.getChildren().get(0));
             });
+            
             timeline.play();
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

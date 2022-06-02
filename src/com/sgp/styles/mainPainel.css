@@ -6,7 +6,7 @@
 
 .mainMenu {
     -fx-background-color: #001233;
-    -fx-background-radius: 2em 0 0 2em;
+    -fx-background-radius: 1em 0 0 1em;
 }
 
 #logo {
@@ -18,7 +18,7 @@
     -fx-pref-width: 159px;
     -fx-pref-height: 50px;
     -fx-background-color: #00183F;
-    -fx-border-width: .5 0 .5 .8em;
+    -fx-border-width: 0 0 0 .8em;
     -fx-border-style: solid;
     -fx-border-color: transparent;
     -fx-padding: 0 0 0 1.3em;
@@ -44,7 +44,7 @@
 
 .container {
     -fx-background-color: #606270;
-    -fx-background-radius: 2em;
+    -fx-background-radius: 1em;
 }
 
 /* Cabecalho */
@@ -56,8 +56,4 @@
 
 .efectHover:hover {
     -fx-fill: grey;
-}
-
-.btn {
-    -fx-fill: white;
 }

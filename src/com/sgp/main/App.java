@@ -2,7 +2,6 @@ package com.sgp.main;
 
 import com.sgp.controllers.LoginController;
 import com.sgp.controllers.MainPainelController;
-
 import javafx.application.Application;
 import javafx.stage.Modality;
 import javafx.stage.Stage;

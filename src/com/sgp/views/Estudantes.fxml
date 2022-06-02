@@ -11,39 +11,54 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="565.0" prefWidth="887.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
+<AnchorPane prefHeight="650.0" prefWidth="1125.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
    <children>
-      <TableView fx:id="tableEstudantes" editable="true" layoutX="14.0" layoutY="82.0" prefHeight="468.0" prefWidth="866.0" styleClass="table">
-        <columns>
-          <TableColumn fx:id="numbEstudantes" maxWidth="50.0" minWidth="50.0" prefWidth="56.93917655944824" resizable="false" text="Nº" />
-          <TableColumn fx:id="nomeEstudantes" prefWidth="426.0" resizable="false" text="Nome" />
-            <TableColumn fx:id="cursoEstudantes" minWidth="0.0" prefWidth="228.0" resizable="false" text="Curso" />
-            <TableColumn fx:id="salaEstudantes" editable="false" prefWidth="88.0" resizable="false" text="Sala" />
-            <TableColumn fx:id="turmaEstudantes" editable="false" prefWidth="73.0" resizable="false" text="Turma" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </TableView>
-      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="15.0" prefHeight="47.0" prefWidth="809.0" spacing="10.0">
+      <AnchorPane fx:id="pageOne" layoutX="14.0" layoutY="15.0" prefHeight="599.0" prefWidth="923.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
          <children>
-            <TextField prefHeight="39.0" prefWidth="432.0" promptText="campo de busca" />
-            <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" rotate="90.0" size="2.5em" translateX="-45.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </FontAwesomeIcon>
-            <ComboBox prefHeight="38.0" prefWidth="264.0" />
-            <JFXButton prefHeight="43.0" prefWidth="105.0" text="Add" textFill="WHITE" />
+            <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="865.0" spacing="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <TextField prefHeight="39.0" prefWidth="432.0" promptText="campo de busca" />
+                  <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" rotate="90.0" size="2.5em" translateX="-45.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontAwesomeIcon>
+                  <ComboBox prefHeight="38.0" prefWidth="264.0" />
+                  <JFXButton prefHeight="43.0" prefWidth="105.0" styleClass="btn" text="Add" textFill="WHITE" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <TableView fx:id="tableEstudantes" editable="true" layoutY="55.0" prefHeight="520.0" prefWidth="895.0" styleClass="table" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+              <columns>
+                <TableColumn fx:id="numbEstudantes" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Nº" />
+                <TableColumn fx:id="nomeEstudantes" maxWidth="841.9999923706055" minWidth="381.0" prefWidth="780.9999923706055" resizable="false" text="Nome" />
+                  <TableColumn fx:id="cursoEstudantes" minWidth="0.0" prefWidth="140.0" resizable="false" text="Curso" />
+                  <TableColumn fx:id="salaEstudantes" editable="false" prefWidth="46.0" resizable="false" text="Sala" />
+                  <TableColumn fx:id="turmaEstudantes" editable="false" prefWidth="73.0" resizable="false" text="Turma" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
+      </AnchorPane>
+      <AnchorPane fx:id="pageTwo" disable="true" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <JFXButton layoutY="17.0" onAction="#BackTable" text=" " textFill="WHITE" AnchorPane.leftAnchor="14.0">
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" size="2em" />
+               </graphic>
+            </JFXButton>
+            <Pane fx:id="content" layoutX="13.0" layoutY="78.0" prefHeight="536.0" prefWidth="913.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0" />
+         </children>
+      </AnchorPane>
    </children>
    <stylesheets>
       <URL value="@../styles/estiloGlobal.css" />

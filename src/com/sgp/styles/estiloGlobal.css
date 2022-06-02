@@ -2,6 +2,14 @@
     -fx-background-color: #363946;
 }
 
+.btn {
+    -fx-fill: white;
+}
+
+.btnNull {
+    -fx-background-color:  #545454;
+}
+
 .btnSave {
     -fx-background-color: green;
 }
@@ -20,5 +28,5 @@
 }
 
 .btnClose:hover {
-    -fx-fill: #ddd;
+    -fx-fill: red;
 }
