@@ -77,6 +77,7 @@ public class AlunoDAO extends PessoaDAO {
                 aluno.setFkClasse(classe);
                 aluno.setNumAluno(res.getInt("numAluno"));
                 aluno.setCodAluno(res.getInt("codAluno"));
+                aluno.setStatus(res.getString("status"));
                 
                 listAlunos.add(aluno);
             }

@@ -5,6 +5,7 @@ public class Aluno {
     private Classe fkClasse;
     private int numAluno;
     private int codAluno;
+    private String status;
 
     public Pessoa getFkPessoa() {
         return fkPessoa;
@@ -36,5 +37,13 @@ public class Aluno {
 
     public void setCodAluno(int numProcesso) {
         this.codAluno = numProcesso;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

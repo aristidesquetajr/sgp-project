@@ -1,15 +1,14 @@
 package com.sgp.controllers;
 
-import static com.sgp.util.Animations.makeFadeOut;
-import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
-import java.net.URL;
-import java.util.ResourceBundle;
-import com.sgp.model.Utilizador;
 import br.com.fandrauss.fx.gui.WindowControllerFx;
 import com.jfoenix.controls.JFXButton;
+import com.sgp.model.Utilizador;
 import static com.sgp.util.Animations.makeFadeIn;
+import static com.sgp.util.Animations.makeFadeOut;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -18,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -36,11 +36,10 @@ public class MainPainelController extends WindowControllerFx {
     @FXML
     private AnchorPane rootPane;
     @FXML
-    private JFXButton 
-            btnHome, btnEstudantes,
+    private JFXButton btnHome, btnEstudantes,
             btnCursos, btnPagamentos,
             btnRelatorios, btnConfigs;
-    
+
     private double xOffset, yOffset;
     Utilizador resUtilizador;
 
@@ -70,13 +69,13 @@ public class MainPainelController extends WindowControllerFx {
             xOffset = event.getSceneX();
             yOffset = event.getSceneY();
         });
-        
+
         // root around hereg-
         rootPane.setOnMouseDragged(event -> {
             getWindow().setX(event.getScreenX() - xOffset);
             getWindow().setY(event.getScreenY() - yOffset);
         });
-        
+
         // Add açao nus Itens do Menu
         btnHome.setOnAction(e -> openWindow(new HomeController()));
         btnEstudantes.setOnAction(e -> openWindow(new EstudantesController()));
@@ -108,9 +107,10 @@ public class MainPainelController extends WindowControllerFx {
 
     @FXML
     void closeApplication(MouseEvent event) {
+        //resUtilizador.setLogado(0);
         System.exit(0);
     }
-    
+
     private void openWindow(WindowControllerFx w) {
         try {
             lblTitle.setText(w.getTitle());

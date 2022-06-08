@@ -30,3 +30,12 @@
 .btnClose:hover {
     -fx-fill: red;
 }
+
+.cleanBorder {
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: gray;
+    -fx-padding: 5px 0 5px 0;
+    -fx-text-fill: white;
+    -fx-fill: white;
+}

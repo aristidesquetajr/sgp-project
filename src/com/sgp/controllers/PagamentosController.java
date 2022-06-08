@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class PagamentosController extends WindowControllerFx {
@@ -31,7 +32,6 @@ public class PagamentosController extends WindowControllerFx {
     private TableColumn<Month, Boolean> multas;
     
 
-    private ObservableList<Month> obsListMonths;
     private final List<Month> listaMonths = new ArrayList<>();
     private Aluno aluno;
 
@@ -41,9 +41,12 @@ public class PagamentosController extends WindowControllerFx {
                 "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
                 "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
         );
+        
+        cmbMonth.getSelectionModel().selectFirst();
 
         months.setCellValueFactory(new PropertyValueFactory<>("month"));
         multas.setCellValueFactory(new PropertyValueFactory<>("multa"));
+        multas.setCellFactory(CheckBoxTableCell.forTableColumn(multas));
 
     }
     
@@ -65,7 +68,7 @@ public class PagamentosController extends WindowControllerFx {
         if (month != null) {
             cmbMonth.getItems().removeAll(month);
             listaMonths.add(new Month(month, multa));
-            updateTableMonth();
+            tableMoths.setItems(updateTableMonth());
         }
 
     }
@@ -78,7 +81,7 @@ public class PagamentosController extends WindowControllerFx {
         if (itemSelected != null) {
             listaMonths.remove(indexSelected);
             cmbMonth.getItems().add(itemSelected.getMonth());
-            updateTableMonth();
+            tableMoths.setItems(updateTableMonth());
         }
     }
 
@@ -87,10 +90,8 @@ public class PagamentosController extends WindowControllerFx {
 
     }
 
-    private void updateTableMonth() {
-        obsListMonths = FXCollections.observableArrayList(listaMonths);
-        tableMoths.getItems().clear();
-        tableMoths.getItems().addAll(obsListMonths);
+    private ObservableList<Month> updateTableMonth() {
+        return FXCollections.observableArrayList(listaMonths);
     }
 
 }

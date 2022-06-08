@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.MainPainelController">
    <children>
-      <BorderPane prefHeight="802.0" prefWidth="1279.0">
+      <BorderPane prefHeight="802.0" prefWidth="1279.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
          <left>
             <Pane prefHeight="534.0" prefWidth="177.0" styleClass="mainMenu" BorderPane.alignment="CENTER">
                <children>

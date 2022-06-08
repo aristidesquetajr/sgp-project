@@ -2,17 +2,18 @@ package com.sgp.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.sgp.model.Aluno;
-
 import br.com.fandrauss.fx.gui.WindowControllerFx;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class ChangeEstudantesController extends WindowControllerFx {
 
+    @FXML
+    private AnchorPane window;
     @FXML
     private ImageView imageEstudante;
 
@@ -54,8 +55,12 @@ public class ChangeEstudantesController extends WindowControllerFx {
 
     private Aluno getAluno;
 
+    public ChangeEstudantesController() {
+    }
+
     public ChangeEstudantesController(Aluno aluno) {
         getAluno = aluno;
+        
     }
 
     @Override
@@ -65,20 +70,30 @@ public class ChangeEstudantesController extends WindowControllerFx {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            nameEstudantes.setText(getAluno.getFkPessoa().getNome());
-            generoEstudante.setPromptText(getAluno.getFkPessoa().getGenero());
-            biEstudante.setText(getAluno.getFkPessoa().toString());
-            emailEstudante.setText(getAluno.getFkPessoa().getEmail());
-            /* nascimentoEstudante.setText(getAluno.getFkPessoa().getNascimento().toString()); */
-            cursoEstudante.setPromptText(getAluno.getFkClasse().getFkCurso().getCurso());
-            classeEstudante.setText(getAluno.getFkClasse().getClasse());
-            salaEstudante.setText(getAluno.getFkClasse().getSala() + "");
-            numbEstudante.setText(getAluno.getNumAluno() + "");
-            turmaEstudante.setText(getAluno.getFkClasse().getFkTurma().getTurma());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        if(getAluno != null)
+            showInfos();
+    }
+
+    private void showInfos() {
+        nameEstudantes.setText(getAluno.getFkPessoa().getNome());
+        generoEstudante.setPromptText(getAluno.getFkPessoa().getGenero());
+        biEstudante.setText(getAluno.getFkPessoa().toString());
+        emailEstudante.setText(getAluno.getFkPessoa().getEmail());
+        /* nascimentoEstudante.setText(getAluno.getFkPessoa().getNascimento().toString()); */
+        cursoEstudante.setPromptText(getAluno.getFkClasse().getFkCurso().getCurso());
+        classeEstudante.setText(getAluno.getFkClasse().getClasse());
+        salaEstudante.setText(getAluno.getFkClasse().getSala() + "");
+        numbEstudante.setText(getAluno.getNumAluno() + "");
+        turmaEstudante.setText(getAluno.getFkClasse().getFkTurma().getTurma());
+    }
+
+    public Aluno getGetAluno() {
+        return getAluno;
+    }
+
+    public void setGetAluno(Aluno getAluno) {
+        this.getAluno = getAluno;
+        showInfos();
     }
 
 }

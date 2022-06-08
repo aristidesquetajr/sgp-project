@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,45 +14,65 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="612.0" prefWidth="933.0" styleClass="container" stylesheets="@../styles/estiloGlobal.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.PagamentosController">
+<AnchorPane prefHeight="612.0" prefWidth="1125.0" styleClass="container" stylesheets="@../styles/estiloGlobal.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.PagamentosController">
    <children>
-      <TableView fx:id="tableMoths" layoutX="29.0" layoutY="173.0" prefHeight="360.0" prefWidth="339.0" AnchorPane.bottomAnchor="30.0">
-        <columns>
-          <TableColumn fx:id="months" prefWidth="261.3333435058594" text="Mes" />
-          <TableColumn fx:id="multas" minWidth="0.0" prefWidth="73.66665649414062" resizable="false" sortable="false" text="Multa?" />
-        </columns>
-      </TableView>
-      <GridPane layoutX="419.0" layoutY="17.0" prefHeight="166.0" prefWidth="486.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="242.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="0.0" prefWidth="22.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.0" minWidth="10.0" prefWidth="244.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <ComboBox prefHeight="39.0" prefWidth="273.0" promptText="Curso" />
-            <ComboBox prefHeight="39.0" prefWidth="277.0" promptText="Estudante" GridPane.rowIndex="1" />
-            <ComboBox prefHeight="39.0" prefWidth="290.0" promptText="Classe" GridPane.columnIndex="2" />
-            <ComboBox layoutX="434.0" layoutY="29.0" prefHeight="39.0" prefWidth="290.0" promptText="Sala" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-      <JFXButton buttonType="RAISED" layoutX="809.0" layoutY="541.0" onAction="#pagar" prefHeight="50.0" prefWidth="97.0" ripplerFill="#6b5c5e" styleClass="btnNull" text="OK" textFill="WHITE" AnchorPane.bottomAnchor="30.0">
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+        <tabs>
+          <Tab text="Mes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableMoths" editable="true" prefHeight="428.0" prefWidth="362.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
+                          <columns>
+                            <TableColumn fx:id="months" prefWidth="261.3333435058594" text="Mes" />
+                            <TableColumn fx:id="multas" minWidth="0.0" prefWidth="91.33334350585938" resizable="false" sortable="false" text="Multa?" />
+                          </columns>
+                        </TableView>
+                        <JFXButton buttonType="RAISED" layoutX="409.0" layoutY="97.0" onAction="#addMonth" prefHeight="56.0" prefWidth="80.0" styleClass="btnNull" text="Adicionar" textFill="WHITE" />
+                        <JFXButton buttonType="RAISED" layoutX="510.0" layoutY="97.0" onAction="#removeMonth" prefHeight="57.0" prefWidth="77.0" styleClass="btnNull" text="Remover" textFill="WHITE" />
+                        <ComboBox fx:id="cmbMonth" layoutX="409.0" layoutY="30.0" prefHeight="39.0" prefWidth="299.0" promptText="Mes" AnchorPane.topAnchor="30.0" />
+                        <JFXCheckBox fx:id="hasMulta" checkedColor="#545454" layoutX="617.0" layoutY="113.0" text="Multa?" textFill="WHITE" unCheckedColor="#c3c0c0">
+                           <font>
+                              <Font name="Roboto Bold" size="20.0" />
+                           </font>
+                        </JFXCheckBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Aluno">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="172.0" prefWidth="894.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="242.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="0.0" prefWidth="22.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="415.0" minWidth="10.0" prefWidth="244.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ComboBox prefHeight="39.0" prefWidth="324.0" promptText="Curso" />
+                              <ComboBox prefHeight="39.0" prefWidth="329.0" promptText="Estudante" GridPane.rowIndex="1" />
+                              <ComboBox prefHeight="39.0" prefWidth="290.0" promptText="Classe" GridPane.columnIndex="2" />
+                              <ComboBox layoutX="434.0" layoutY="29.0" prefHeight="39.0" prefWidth="290.0" promptText="Sala" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <JFXButton buttonType="RAISED" disable="true" layoutX="809.0" layoutY="541.0" onAction="#pagar" prefHeight="50.0" prefWidth="97.0" ripplerFill="#6b5c5e" styleClass="btnNull" text="OK" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0">
          <font>
             <Font name="Roboto Bold" size="14.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="29.0" layoutY="95.0" onAction="#addMonth" prefHeight="56.0" prefWidth="80.0" styleClass="btnNull" text="Adicionar" textFill="WHITE" />
-      <JFXButton buttonType="RAISED" layoutX="124.0" layoutY="95.0" onAction="#removeMonth" prefHeight="57.0" prefWidth="77.0" styleClass="btnNull" text="Remover" textFill="WHITE" />
-      <ComboBox fx:id="cmbMonth" layoutX="29.0" layoutY="36.0" prefHeight="39.0" prefWidth="299.0" promptText="Mes" />
-      <JFXCheckBox fx:id="hasMulta" checkedColor="#545454" layoutX="224.0" layoutY="115.0" text="Multa?" textFill="WHITE" unCheckedColor="#c3c0c0">
-         <font>
-            <Font name="Roboto Bold" size="20.0" />
-         </font>
-      </JFXCheckBox>
    </children>
 </AnchorPane>
