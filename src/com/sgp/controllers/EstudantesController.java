@@ -116,10 +116,12 @@ public class EstudantesController extends WindowControllerFx {
         Curso curso = cmbCursoC.getValue();
         String classe = cmbClasseC.getValue();
         try {
-            if (nome.isEmpty() || email.isEmpty() || curso.equals(null)) {
+            if (nome.isEmpty() || email.isEmpty()) {
                 new Alert(Alert.AlertType.ERROR, "preenxa todos os campos").show();
             } else {
+                Aluno aluno = new Aluno();
                 
+                alunoDAO.cadastrar(aluno);
             }
         } catch (Exception e) {
             System.out.println("Erro no cadastro: " + e.getMessage());

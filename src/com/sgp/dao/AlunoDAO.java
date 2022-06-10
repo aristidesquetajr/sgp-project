@@ -42,7 +42,7 @@ public class AlunoDAO extends PessoaDAO {
         return false;
     }
 
-    public boolean CadastrarAluno(Aluno aluno) {
+    private boolean CadastrarAluno(Aluno aluno) {
         sql = "UPDATE Aluno set fkClasse = ?, numAluno = ?, codAluno = ? WHERE fkPessoa = ";
         try {
             this.stmt = getConnection().prepareStatement(sql);

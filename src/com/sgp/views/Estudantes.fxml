@@ -99,17 +99,17 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="barraPesquisaNome" alignment="CENTER" layoutX="376.0" layoutY="44.0" onKeyReleased="#searchEstudante" prefHeight="39.0" prefWidth="432.0" promptText="Pesquisar estudante" styleClass="barraPesquisa">
+                        <TextField fx:id="barraPesquisaNome" alignment="CENTER" layoutX="376.0" layoutY="26.0" onKeyReleased="#searchEstudante" prefHeight="39.0" prefWidth="432.0" promptText="Pesquisar estudante" styleClass="barraPesquisa">
                            <font>
                               <Font name="Roboto" size="16.0" />
                            </font>
                         </TextField>
-                        <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" layoutX="819.0" layoutY="75.0" rotate="90.0" size="2.5em" translateX="-45.0">
+                        <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" layoutX="819.0" layoutY="58.0" rotate="90.0" size="2.5em" translateX="-45.0">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </FontAwesomeIcon>
-                        <TableView fx:id="tableEstudantes" editable="true" layoutX="15.0" layoutY="75.0" prefHeight="520.0" prefWidth="895.0" styleClass="table" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                        <TableView fx:id="tableEstudantes" editable="true" layoutX="15.0" layoutY="75.0" prefHeight="545.0" prefWidth="1100.0" styleClass="table" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                           <columns>
                             <TableColumn fx:id="columnNumbEstudantes" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Nº" />
                             <TableColumn fx:id="columnNome" maxWidth="841.9999923706055" minWidth="37.00001525878906" prefWidth="282.3333511352539" resizable="false" text="Nome" />

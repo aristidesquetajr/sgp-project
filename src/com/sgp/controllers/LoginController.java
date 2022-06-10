@@ -91,7 +91,11 @@ public class LoginController extends WindowControllerFx {
             }
         } catch (Exception e) {
             System.out.println("[Error] ligação não estabelecida: " + e.getMessage());
-            new Alert(AlertType.WARNING, "[505] ligação não estabelecida").show();
+            //new Alert(AlertType.WARNING, "[505] ligação não estabelecida").show();
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Ligaçao nao estabelecida");
+            alert.setTitle("Erro 500");
+            alert.show();
         }
     }
     
