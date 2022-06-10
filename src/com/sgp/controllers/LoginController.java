@@ -1,42 +1,29 @@
 package com.sgp.controllers;
 
-import static com.sgp.util.Animations.makeFadeIn;
-import static com.sgp.util.Animations.makeFadeOut;
-import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-
+import br.com.fandrauss.fx.gui.WindowControllerFx;
 import com.sgp.dao.UtilizadorDAO;
 import com.sgp.model.Utilizador;
-
-import br.com.fandrauss.fx.gui.WindowControllerFx;
+import static com.sgp.util.Animations.makeFadeIn;
+import static com.sgp.util.Animations.makeFadeOut;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import static javafx.scene.input.MouseEvent.MOUSE_ENTERED;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
-import javafx.util.Duration;
 
 public class LoginController extends WindowControllerFx {
 
     @FXML private PasswordField txtPass;
     @FXML private TextField txtUser;
     @FXML private AnchorPane window;
-    
     
     /* Outros Atributos */
     final private UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
@@ -72,37 +59,12 @@ public class LoginController extends WindowControllerFx {
     }
     
     @FXML
-    private void openRecoverPassword(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(new RecoverPasswordController().getFXML()));
-            Scene scene = window.getScene();
-            scene.setFill(Color.TRANSPARENT);
-
-            root.translateXProperty().set(scene.getWidth());
-            window.getChildren().add(root);
-
-            Timeline timeline = new Timeline();
-            KeyValue kv = new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-            KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
-            timeline.getKeyFrames().add(kf);
-
-            timeline.setOnFinished(event2 -> {
-                window.getChildren().remove(window.getChildren().get(0));
-            });
-            
-            timeline.play();
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    private void closeApplication(MouseEvent event) {
+    void closeApplication(MouseEvent event) {
         System.exit(0);
     }
 
     @FXML
-    private void changeCloseIcon(MouseEvent event) {
+    void changeCloseIcon(MouseEvent event) {
         FontAwesomeIcon icon = (FontAwesomeIcon) event.getSource();
         if (event.getEventType() == MOUSE_ENTERED)
             icon.setGlyphName("TIMES_CIRCLE");
@@ -111,7 +73,7 @@ public class LoginController extends WindowControllerFx {
     }
 
     @FXML
-    private void Login(ActionEvent event) {
+    void Login(ActionEvent event) {
         try {
             utilizador.setUsername(txtUser.getText());
             utilizador.setPassword(txtPass.getText());

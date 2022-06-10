@@ -11,7 +11,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            new MainPainelController()
+            new LoginController()
                 .setStage(stage)
                 .setModality(Modality.APPLICATION_MODAL)
                 .showUndecorated(true);

@@ -1,6 +1,7 @@
-package com.sgp.controllers;
+package undefined;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
+import com.sgp.controllers.LoginController;
 import java.net.URL;
 import java.util.ResourceBundle;
 
