@@ -61,7 +61,7 @@ public class MainPainelController extends WindowControllerFx {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        openWindow(new PagamentosController());
+        openWindow(new EstudantesController());
         makeFadeIn(rootPane, 5);
 
         // grab your root here

@@ -10,6 +10,10 @@
 }
 
 .table-column {
-    #-fx-background-color: #676767;
+/*    -fx-background-color: #676767;*/
     -fx-padding: 5 0 10 5;
+}
+
+.barraPesquisa {
+    -fx-background-radius: 20px;
 }

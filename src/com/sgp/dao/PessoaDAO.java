@@ -1,26 +1,22 @@
 package com.sgp.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.sgp.conexao.Conexao;
+import com.sgp.model.Aluno;
 import com.sgp.model.Pessoa;
+import java.sql.SQLException;
 
 public class PessoaDAO extends Conexao {
 
-    private PreparedStatement stmt;
-    private ResultSet res;
     
-    public Boolean cadastrarPessoa(Pessoa pessoa) {
+    public Boolean cadastrar(Aluno aluno) {
         String sql = "INSERT INTO Pessoa (nome, email, genero, nascimento) VALUES (?, ?, ?, ?)";
         try {
             stmt = getConnection().prepareStatement(sql);
-            stmt.setString(1, pessoa.getNome());
-            stmt.setString(2, pessoa.getEmail());
-            stmt.setString(3, pessoa.getGenero());
-            stmt.setDate(4, pessoa.getNascimento());
-            return stmt.execute() ? false : true;
+            stmt.setString(1, aluno.getFkPessoa().getNome());
+            stmt.setString(2, aluno.getFkPessoa().getEmail());
+            stmt.setString(3, aluno.getFkPessoa().getGenero());
+            stmt.setDate(4, aluno.getFkPessoa().getNascimento());
+            return !stmt.execute();
         } catch(SQLException e) {
             System.out.println("Erro no cadastro: " + e.getMessage());
         }

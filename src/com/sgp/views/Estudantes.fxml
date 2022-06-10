@@ -3,10 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -20,54 +22,102 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1125.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
+<AnchorPane prefHeight="699.0" prefWidth="1130.0" styleClass="container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sgp.controllers.EstudantesController">
    <children>
       <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Ver">
+          <Tab text="Cadastrar novo estudante">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="21.0" spacing="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="20.0">
-                           <children>
-                              <TextField prefHeight="39.0" prefWidth="432.0" promptText="campo de busca">
-                                 <font>
-                                    <Font name="Roboto" size="13.0" />
-                                 </font></TextField>
-                              <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" rotate="90.0" size="2.5em" translateX="-45.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </FontAwesomeIcon>
-                              <Label contentDisplay="RIGHT" text="Filtro:" textFill="WHITE">
-                                 <graphic>
-                                    <ComboBox prefHeight="38.0" prefWidth="264.0" />
-                                 </graphic>
-                              </Label>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </HBox>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="1003.0" layoutY="21.0" prefHeight="43.0" prefWidth="105.0" text="ADD" textFill="WHITE" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+                        <ImageView fitHeight="178.0" fitWidth="168.0" layoutX="37.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="77.0">
+                           <image>
+                              <Image url="@../images/man-icon.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="tfNomeCompletoC" layoutX="233.0" layoutY="72.0" prefHeight="39.0" prefWidth="360.0" promptText="Nome completo" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="tfEmailC" layoutX="700.0" layoutY="72.0" prefHeight="39.0" prefWidth="360.0" promptText="Email" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <JFXRadioButton layoutX="237.0" layoutY="160.0" selected="true" text="Masculino" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioGeneroC" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton layoutX="421.0" layoutY="160.0" text="Femenino" textFill="WHITE" toggleGroup="$radioGeneroC">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font></JFXRadioButton>
+                        <TextField fx:id="tfTelefoneC" layoutX="700.0" layoutY="151.0" prefHeight="39.0" prefWidth="360.0" promptText="Telefone" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label contentDisplay="RIGHT" layoutX="238.0" layoutY="239.0" text="Escolher curso:" textFill="WHITE">
                            <graphic>
-                              <FontAwesomeIcon fill="WHITE" glyphName="PLUS" size="2em" />
+                              <ComboBox fx:id="cmbCursoC" prefHeight="39.0" prefWidth="236.0" />
                            </graphic>
                            <font>
-                              <Font name="Roboto" size="13.0" />
+                              <Font name="Roboto" size="18.0" />
                            </font>
+                        </Label>
+                        <Label contentDisplay="RIGHT" layoutX="700.0" layoutY="239.0" text="Classe:" textFill="WHITE">
+                           <graphic>
+                              <ComboBox fx:id="cmbClasseC" prefHeight="36.0" prefWidth="204.0" />
+                           </graphic>
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton buttonType="RAISED" layoutX="73.0" layoutY="278.0" onAction="#cadastrarEstudante" prefHeight="40.0" prefWidth="96.0" text="Cadastrar">
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btnSave" />
+                           </styleClass>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <font>
+                              <Font name="Roboto Bold" size="15.0" />
+                           </font>
                         </JFXButton>
+                        <DatePicker layoutX="262.0" layoutY="402.0" prefHeight="26.0" prefWidth="184.0" promptText="Data de nascimento" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Lista de estudantes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="barraPesquisaNome" alignment="CENTER" layoutX="376.0" layoutY="44.0" onKeyReleased="#searchEstudante" prefHeight="39.0" prefWidth="432.0" promptText="Pesquisar estudante" styleClass="barraPesquisa">
+                           <font>
+                              <Font name="Roboto" size="16.0" />
+                           </font>
+                        </TextField>
+                        <FontAwesomeIcon fill="#c3c3c3" glyphName="SEARCH" layoutX="819.0" layoutY="75.0" rotate="90.0" size="2.5em" translateX="-45.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIcon>
                         <TableView fx:id="tableEstudantes" editable="true" layoutX="15.0" layoutY="75.0" prefHeight="520.0" prefWidth="895.0" styleClass="table" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                           <columns>
-                            <TableColumn fx:id="numbEstudantes" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Nº" />
-                            <TableColumn fx:id="nomeEstudantes" maxWidth="841.9999923706055" minWidth="276.0" prefWidth="325.0" resizable="false" text="Nome" />
-                              <TableColumn fx:id="cursoEstudantes" minWidth="0.0" prefWidth="273.0" resizable="false" text="Curso" />
-                              <TableColumn fx:id="salaEstudantes" editable="false" prefWidth="115.0" resizable="false" text="Sala" />
-                              <TableColumn fx:id="turmaEstudantes" editable="false" prefWidth="99.0" resizable="false" text="Turma" />
-                              <TableColumn fx:id="statusEstudantes" prefWidth="75.0" text="Status" />
+                            <TableColumn fx:id="columnNumbEstudantes" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="Nº" />
+                            <TableColumn fx:id="columnNome" maxWidth="841.9999923706055" minWidth="37.00001525878906" prefWidth="282.3333511352539" resizable="false" text="Nome" />
+                              <TableColumn fx:id="columnCurso" minWidth="0.0" prefWidth="206.3333740234375" resizable="false" text="Curso" />
+                              <TableColumn fx:id="columnSala" editable="false" prefWidth="99.66668701171875" resizable="false" text="Sala" />
+                              <TableColumn fx:id="columnTurma" editable="false" prefWidth="118.0" resizable="false" text="Turma" />
+                              <TableColumn fx:id="columnStatus" prefWidth="147.3333740234375" text="Status" />
+                              <TableColumn fx:id="columnAnoLetivo" minWidth="0.0" prefWidth="150.6666259765625" text="Ano letivo" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -80,122 +130,105 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Cadastrar">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ImageView fx:id="imageEstudante" fitHeight="168.0" fitWidth="167.0" layoutX="31.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="39.0">
-                           <image>
-                              <Image url="@../images/man-icon.png" />
-                           </image>
-                        </ImageView>
-                        <TextField layoutX="222.0" layoutY="72.0" prefHeight="39.0" prefWidth="357.0" promptText="Nome completo" styleClass="cleanBorder">
-                           <font>
-                              <Font name="Roboto" size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="40.0" layoutY="289.0" prefHeight="39.0" prefWidth="360.0" promptText="Telefone" styleClass="cleanBorder">
-                           <font>
-                              <Font name="Roboto" size="16.0" />
-                           </font>
-                        </TextField>
-                        <ComboBox layoutX="220.0" layoutY="188.0" prefHeight="37.0" prefWidth="364.0" promptText="Escolher curso" styleClass="cleanBorder" />
-                        <ComboBox layoutX="517.0" layoutY="310.0" prefHeight="36.0" prefWidth="204.0" promptText="Classe" styleClass="cleanBorder" />
-                        <JFXRadioButton layoutX="224.0" layoutY="135.0" selected="true" text="Masculino" textFill="WHITE">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="genero" />
-                           </toggleGroup>
-                           <font>
-                              <Font name="Roboto" size="20.0" />
-                           </font>
-                        </JFXRadioButton>
-                        <JFXRadioButton layoutX="408.0" layoutY="135.0" text="Femenino" textFill="WHITE" toggleGroup="$genero">
-                           <font>
-                              <Font name="Roboto" size="20.0" />
-                           </font></JFXRadioButton>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Editar">
+            <Tab disable="true" text="Editar">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="imageEstudante1" fitHeight="135.0" fitWidth="146.0" layoutX="34.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="24.0">
+                        <ImageView fitHeight="178.0" fitWidth="168.0" layoutX="37.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="77.0">
                            <image>
                               <Image url="@../images/man-icon.png" />
                            </image>
                         </ImageView>
-                        <HBox alignment="CENTER" layoutX="15.0" layoutY="200.0" spacing="10.0">
-                           <children>
-                              <Label text="Nome:" textFill="WHITE" />
-                              <TextField fx:id="nameEstudantes" focusTraversable="false" prefHeight="26.0" prefWidth="306.0">
-                                 <font>
-                                    <Font name="Roboto" size="13.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="15.0" layoutY="239.0" spacing="10.0">
+                        <TextField fx:id="nameEstudantes" focusTraversable="false" layoutX="258.0" layoutY="79.0" prefHeight="34.0" prefWidth="308.0" promptText="Nome completo" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <HBox alignment="CENTER" layoutX="434.0" layoutY="367.0" spacing="10.0">
                            <children>
                               <Label text="Genero:" textFill="WHITE" />
-                              <ComboBox fx:id="generoEstudante" editable="true" prefHeight="26.0" prefWidth="197.0" />
+                              <ComboBox fx:id="generoEstudante" prefHeight="26.0" prefWidth="197.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="428.0" layoutY="200.0" spacing="10.0">
-                           <children>
-                              <Label text="Email:" textFill="WHITE" />
-                              <TextField fx:id="emailEstudante" prefHeight="26.0" prefWidth="217.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="428.0" layoutY="252.0" spacing="10.0">
+                        <TextField fx:id="emailEstudante" layoutX="763.0" layoutY="96.0" prefHeight="34.0" prefWidth="286.0" promptText="examplo@com.ao" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <HBox alignment="CENTER" layoutX="191.0" layoutY="542.0" spacing="10.0">
                            <children>
                               <Label text="Data de Nascimento:" textFill="WHITE" />
                               <TextField fx:id="nascimentoEstudante" focusTraversable="false" prefHeight="26.0" prefWidth="105.0" promptText="0000-00-00" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="494.0" layoutY="563.0" spacing="10.0">
-                           <children>
-                              <Label text="Curso:" textFill="WHITE" />
-                              <ComboBox fx:id="cursoEstudante" editable="true" prefHeight="26.0" prefWidth="200.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" layoutX="470.0" layoutY="474.0" spacing="10.0">
+                        <Label contentDisplay="RIGHT" layoutX="258.0" layoutY="198.0" text="Curso:" textFill="WHITE">
+                           <graphic>
+                              <ComboBox fx:id="cursoEstudante" prefHeight="28.0" prefWidth="249.0" />
+                           </graphic>
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" layoutX="70.0" layoutY="367.0" spacing="10.0">
                            <children>
                               <Label text="Classe:" textFill="WHITE" />
                               <TextField fx:id="classeEstudante" focusTraversable="false" prefHeight="26.0" prefWidth="206.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="34.0" layoutY="474.0" spacing="10.0">
+                        <HBox alignment="CENTER" layoutX="150.0" layoutY="433.0" spacing="10.0">
                            <children>
                               <Label text="Sala:" textFill="WHITE" />
                               <TextField fx:id="salaEstudante" focusTraversable="false" prefHeight="26.0" prefWidth="117.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="137.0" layoutY="563.0" spacing="10.0">
+                        <HBox alignment="CENTER" layoutX="469.0" layoutY="462.0" spacing="10.0">
                            <children>
                               <Label text="Nº Encarregado:" textFill="WHITE" />
                               <TextField fx:id="telefoneEncarregado" focusTraversable="false" prefHeight="26.0" prefWidth="135.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="21.0" layoutY="159.0" spacing="10.0">
+                        <HBox alignment="CENTER" layoutX="55.0" layoutY="30.0" spacing="10.0">
                            <children>
                               <Label text="Aluno Nº:" textFill="WHITE" />
                               <TextField fx:id="numbEstudante" editable="false" focusTraversable="false" prefHeight="26.0" prefWidth="61.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="584.0" layoutY="418.0" spacing="10.0">
+                        <HBox alignment="CENTER" layoutX="791.0" layoutY="341.0" spacing="10.0">
                            <children>
                               <Label text="Turma:" textFill="WHITE" />
                               <TextField fx:id="turmaEstudante" focusTraversable="false" prefHeight="26.0" prefWidth="117.0" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" layoutX="439.0" layoutY="344.0" spacing="10.0">
-                           <children>
-                              <Label text="Nº Telefone:" textFill="WHITE" />
-                              <TextField fx:id="telefoneEstudante" focusTraversable="false" prefHeight="26.0" prefWidth="155.0" />
-                           </children>
-                        </HBox>
+                        <TextField fx:id="telefoneEstudante" focusTraversable="false" layoutX="763.0" layoutY="167.0" prefHeight="34.0" prefWidth="288.0" promptText="Telefone" styleClass="cleanBorder">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton buttonType="RAISED" layoutX="73.0" layoutY="259.0" prefHeight="40.0" prefWidth="96.0" text="Actualizar">
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btnEdit" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Roboto Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXRadioButton layoutX="256.0" layoutY="145.0" selected="true" text="Masculino" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="radioGeneroE" />
+                           </toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton layoutX="444.0" layoutY="145.0" text="Femenino" textFill="WHITE" toggleGroup="$radioGeneroE">
+                           <font>
+                              <Font name="Roboto" size="18.0" />
+                           </font>
+                        </JFXRadioButton>
                      </children>
                   </AnchorPane>
                </content>

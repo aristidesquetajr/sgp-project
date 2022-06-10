@@ -1,13 +1,11 @@
 package com.sgp.controllers;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXListView;
 import com.sgp.dao.CursoDAO;
 import com.sgp.model.Curso;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,13 +25,10 @@ public class CursosController extends WindowControllerFx {
 
     @FXML
     private JFXListView<Curso> listCursos;
-
     @FXML
     private TextField txtCurso;
-
     @FXML
     private Pane container;
-
     private Curso curso;
     private CursoDAO cursoDAO;    
 
@@ -57,7 +52,7 @@ public class CursosController extends WindowControllerFx {
     }
     
     @FXML
-    private void handleButtonAddCurso(ActionEvent event) {
+    void handleButtonAddCurso(ActionEvent event) {
         String textCurso = this.txtCurso.getText();
         if (!(textCurso.isEmpty())) {
             Alert hasConfirmation = new Alert(AlertType.CONFIRMATION, "adicionar novo item?");

@@ -46,6 +46,11 @@ public class Classe {
     public void setSala(int sala) {
         this.sala = sala;
     }
+
+    @Override
+    public String toString() {
+        return this.classe;
+    }
     
-    
+
 }

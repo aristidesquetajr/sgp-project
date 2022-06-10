@@ -3,12 +3,18 @@ package com.sgp.conexao;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Conexao {
     
     private final String host;
     private final String user;
     private final String pass;
+    
+    public String sql;
+    public PreparedStatement stmt;
+    public ResultSet res;
     
     public Conexao() {
         this.host = "jdbc:mysql://localhost:3306/gesp";

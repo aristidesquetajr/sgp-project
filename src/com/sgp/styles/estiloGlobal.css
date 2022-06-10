@@ -4,6 +4,7 @@
 
 .btn {
     -fx-fill: white;
+    -fx-text-fill: white;
 }
 
 .btnNull {
