@@ -5,8 +5,7 @@
         <group>
             <file>file:/home/kashiki/NetBeansProjects/1_IMPTEL/sgp-project/src/com/sgp/dao/AlunoDAO.java</file>
             <file>file:/home/kashiki/NetBeansProjects/1_IMPTEL/sgp-project/src/com/sgp/controllers/EstudantesController.java</file>
-            <file>file:/home/kashiki/NetBeansProjects/1_IMPTEL/sgp-project/src/com/sgp/views/Estudantes.fxml</file>
-            <file>file:/home/kashiki/NetBeansProjects/1_IMPTEL/sgp-project/src/com/sgp/dao/ClasseDAO.java</file>
+            <file>file:/home/kashiki/NetBeansProjects/1_IMPTEL/sgp-project/src/com/sgp/main/App.java</file>
         </group>
     </open-files>
 </project-private>

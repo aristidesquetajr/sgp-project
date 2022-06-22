@@ -1,16 +1,7 @@
 package com.sgp.model;
 
-public class Funcionario {
-    private Pessoa fkPessoa;
+public class Funcionario  extends Pessoa {
     private String cargo;
-
-    public Pessoa getFkPessoa() {
-        return this.fkPessoa;
-    }
-
-    public void setFkPessoa(Pessoa fkPessoa) {
-        this.fkPessoa = fkPessoa;
-    }
 
     public String getCargo() {
         return cargo;

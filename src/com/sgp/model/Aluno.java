@@ -1,21 +1,14 @@
 package com.sgp.model;
 
-public class Aluno {
-    private Pessoa fkPessoa;
+public class Aluno  extends Pessoa {
     private Classe fkClasse;
     private int numAluno;
     private int codAluno;
     private String anoLetivo;
     private String status;
     
-    public Pessoa getFkPessoa() {
-        return fkPessoa;
-    }
-
-    public void setFkPessoa(Pessoa fkPessoa) {
-        this.fkPessoa = fkPessoa;
-    }
-
+    
+    
     public Classe getFkClasse() {
         return fkClasse;
     }

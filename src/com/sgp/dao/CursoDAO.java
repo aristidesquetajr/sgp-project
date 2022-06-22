@@ -26,13 +26,13 @@ public class CursoDAO  extends Conexao {
         sql = "SELECT * FROM Curso ORDER BY curso";
         try {
             stmt = getConnection().prepareStatement(sql);
-            res = stmt.executeQuery();
+            resultSet = stmt.executeQuery();
 
             List<Curso> listCursos = new ArrayList<>();
-            while (res.next()) {
+            while (resultSet.next()) {
                 Curso curso = new Curso();
-                curso.setIdCurso(res.getInt("idCurso"));
-                curso.setCurso(res.getString("curso"));
+                curso.setIdCurso(resultSet.getInt("idCurso"));
+                curso.setCurso(resultSet.getString("curso"));
                 listCursos.add(curso);
             }
 

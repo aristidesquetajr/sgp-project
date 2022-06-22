@@ -8,7 +8,7 @@ import javafx.util.Duration;
 
 public class Animations {
 
-
+        
     public static void makeFadeIn(Node rootPane, int time) {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.seconds(time));

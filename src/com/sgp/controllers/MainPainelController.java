@@ -38,7 +38,7 @@ public class MainPainelController extends WindowControllerFx {
     @FXML
     private JFXButton btnHome, btnEstudantes,
             btnCursos, btnPagamentos,
-            btnRelatorios, btnConfigs;
+            btnRelatorios, btnConfigs, btnClasses;
 
     private double xOffset, yOffset;
     Utilizador resUtilizador;
@@ -47,7 +47,7 @@ public class MainPainelController extends WindowControllerFx {
     }
 
     public MainPainelController(Utilizador utilizador) {
-        System.out.println("Welcome " + utilizador.getFkFuncionario().getFkPessoa().getNome());
+        System.out.println("Welcome " + utilizador.getNome());
         resUtilizador = utilizador;
     }
 
@@ -63,23 +63,13 @@ public class MainPainelController extends WindowControllerFx {
     public void initialize(URL url, ResourceBundle rb) {
         openWindow(new EstudantesController());
         makeFadeIn(rootPane, 5);
-
-        // grab your root here
-        rootPane.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        // root around hereg-
-        rootPane.setOnMouseDragged(event -> {
-            getWindow().setX(event.getScreenX() - xOffset);
-            getWindow().setY(event.getScreenY() - yOffset);
-        });
+        moveWindow();
 
         // Add açao nus Itens do Menu
         btnHome.setOnAction(e -> openWindow(new HomeController()));
         btnEstudantes.setOnAction(e -> openWindow(new EstudantesController()));
         btnCursos.setOnAction(e -> openWindow(new CursosController()));
+        //
         btnPagamentos.setOnAction(e -> openWindow(new PagamentosController()));
         btnRelatorios.setOnAction(e -> openWindow(new RelatorioController()));
         btnConfigs.setOnAction(e -> openWindow(new ConfigController()));
@@ -87,8 +77,8 @@ public class MainPainelController extends WindowControllerFx {
 
     @FXML
     void Logout(ActionEvent event) throws InterruptedException {
-        makeFadeOut(rootPane, 2);
-        Thread.sleep(2001);
+        makeFadeOut(rootPane, 1);
+        Thread.sleep(1010);
         new LoginController()
                 .setParent(getWindow())
                 .setModality(Modality.APPLICATION_MODAL)
@@ -109,6 +99,18 @@ public class MainPainelController extends WindowControllerFx {
     void closeApplication(MouseEvent event) {
         //resUtilizador.setLogado(0);
         System.exit(0);
+    }
+    
+    private void moveWindow() {
+        rootPane.setOnMousePressed(event -> { // grab your root here
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        rootPane.setOnMouseDragged(event -> { // root around here
+            getWindow().setX(event.getScreenX() - xOffset);
+            getWindow().setY(event.getScreenY() - yOffset);
+        });
     }
 
     private void openWindow(WindowControllerFx w) {

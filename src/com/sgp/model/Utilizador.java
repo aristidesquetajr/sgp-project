@@ -1,20 +1,18 @@
 package com.sgp.model;
 
-public class Utilizador {
-    private Funcionario fkFuncionario;
+public class Utilizador extends Funcionario {
     private String username;
     private String password;
     private int logado;
 
-    public Funcionario getFkFuncionario() {
-        return this.fkFuncionario;
+    public Utilizador() {
+    }
+    
+    public Utilizador(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    
-    public void setFkFuncionario(Funcionario fkFuncionario) {
-        this.fkFuncionario = fkFuncionario;
-    }
-    
     public String getUsername() {
         return this.username;
     }

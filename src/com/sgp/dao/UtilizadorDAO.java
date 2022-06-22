@@ -1,39 +1,28 @@
 package com.sgp.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.sgp.conexao.Conexao;
-import com.sgp.model.Funcionario;
-import com.sgp.model.Pessoa;
 import com.sgp.model.Utilizador;
+import java.sql.SQLException;
 
 public class UtilizadorDAO extends Conexao {
 
     public Utilizador getAccess(Utilizador user) {
         String sql = "CALL login(?, ?)";
         try {
-            PreparedStatement stmt = getConnection().prepareStatement(sql);
+            stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getPassword());
 
-            ResultSet result = stmt.executeQuery();
+            resultSet = stmt.executeQuery();
             Utilizador utilizador = new Utilizador();
             utilizador.setLogado(0);
-            while (result.first()) {
-                Pessoa pessoa = new Pessoa();
-                pessoa.setIdPessoa(result.getInt("idPessoa"));
-                pessoa.setNome(result.getString("nome"));
-                pessoa.setEmail(result.getString("email"));
-                pessoa.setGenero(result.getString("genero"));
+            while (resultSet.first()) {
+                utilizador.setIdPessoa(resultSet.getInt("idPessoa"));
+                utilizador.setNome(resultSet.getString("nome"));
+                utilizador.setEmail(resultSet.getString("email"));
+                utilizador.setGenero(resultSet.getString("genero"));
                 /* pessoa.setNascimento(result.getDate("nascimento")); */
-
-                Funcionario funcionario = new Funcionario();
-                funcionario.setCargo(result.getString("cargo"));
-                funcionario.setFkPessoa(pessoa);
-
-                utilizador.setFkFuncionario(funcionario);
+                utilizador.setCargo(resultSet.getString("cargo"));
                 utilizador.setLogado(1);
                 break;
             }

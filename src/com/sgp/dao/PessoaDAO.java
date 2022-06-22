@@ -12,10 +12,10 @@ public class PessoaDAO extends Conexao {
         String sql = "INSERT INTO Pessoa (nome, email, genero, nascimento) VALUES (?, ?, ?, ?)";
         try {
             stmt = getConnection().prepareStatement(sql);
-            stmt.setString(1, aluno.getFkPessoa().getNome());
-            stmt.setString(2, aluno.getFkPessoa().getEmail());
-            stmt.setString(3, aluno.getFkPessoa().getGenero());
-            stmt.setDate(4, aluno.getFkPessoa().getNascimento());
+            stmt.setString(1, aluno.getNome());
+            stmt.setString(2, aluno.getEmail());
+            stmt.setString(3, aluno.getGenero());
+            stmt.setDate(4, aluno.getNascimento());
             return !stmt.execute();
         } catch(SQLException e) {
             System.out.println("Erro no cadastro: " + e.getMessage());
@@ -28,14 +28,14 @@ public class PessoaDAO extends Conexao {
         try {
             stmt = getConnection().prepareStatement(sql);
             stmt.setString(1, fullName);
-            res = stmt.executeQuery();
+            resultSet = stmt.executeQuery();
             Pessoa pessoa = new Pessoa();
-            while (res.first()) {
-                pessoa.setIdPessoa(res.getInt("IdPessoa"));
-                pessoa.setNome(res.getString("nome"));
-                pessoa.setEmail(res.getString("email"));
-                pessoa.setGenero(res.getString("genero"));
-                pessoa.setNascimento(res.getDate("nascimento"));
+            while (resultSet.first()) {
+                pessoa.setIdPessoa(resultSet.getInt("IdPessoa"));
+                pessoa.setNome(resultSet.getString("nome"));
+                pessoa.setEmail(resultSet.getString("email"));
+                pessoa.setGenero(resultSet.getString("genero"));
+                pessoa.setNascimento(resultSet.getDate("nascimento"));
             }
             
             return pessoa;

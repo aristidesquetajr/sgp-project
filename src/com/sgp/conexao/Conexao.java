@@ -14,7 +14,7 @@ public class Conexao {
     
     public String sql;
     public PreparedStatement stmt;
-    public ResultSet res;
+    public ResultSet resultSet;
     
     public Conexao() {
         this.host = "jdbc:mysql://localhost:3306/gesp";

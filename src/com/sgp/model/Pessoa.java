@@ -8,6 +8,17 @@ public class Pessoa {
     private String email;
     private String genero;
     private Date nascimento;
+    private String telefone;
+
+    public Pessoa() {
+    }
+    
+    public Pessoa(String nome, String email, String genero, Date nascimento) {
+        this.nome = nome;
+        this.email = email;
+        this.genero = genero;
+        this.nascimento = nascimento;
+    }
 
     public int getIdPessoa() {
         return idPessoa;
@@ -49,6 +60,14 @@ public class Pessoa {
         this.nascimento = nascimento;
     }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    
     @Override
     public String toString() {
         return this.nome;

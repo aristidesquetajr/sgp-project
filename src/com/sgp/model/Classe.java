@@ -1,8 +1,7 @@
 package com.sgp.model;
 
-public class Classe {
+public class Classe extends Curso {
     private int idClasse;
-    private Curso fkCurso;
     private String classe;
     private Turma fkTurma;
     private int sala;
@@ -13,14 +12,6 @@ public class Classe {
 
     public void setIdClasse(int idClasse) {
         this.idClasse = idClasse;
-    }
-
-    public Curso getFkCurso() {
-        return fkCurso;
-    }
-
-    public void setFkCurso(Curso fkCurso) {
-        this.fkCurso = fkCurso;
     }
 
     public String getClasse() {

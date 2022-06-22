@@ -2,6 +2,7 @@ package com.sgp.controllers;
 
 import br.com.fandrauss.fx.gui.WindowControllerFx;
 import com.sgp.dao.AlunoDAO;
+import com.sgp.dao.ClasseDAO;
 import com.sgp.dao.CursoDAO;
 import com.sgp.model.Aluno;
 import com.sgp.model.Classe;
@@ -45,7 +46,7 @@ public class EstudantesController extends WindowControllerFx {
     @FXML
     private ComboBox<Curso> cmbCursoC;
     @FXML
-    private ComboBox<String> cmbClasseC;
+    private ComboBox<Classe> cmbClasseC;
 
     /**
      * Page -> lista de estudantes
@@ -77,6 +78,7 @@ public class EstudantesController extends WindowControllerFx {
     
     final private AlunoDAO alunoDAO = new AlunoDAO();
     final private CursoDAO cursoDAO = new CursoDAO();
+    final private ClasseDAO classeDAO = new ClasseDAO();
     ObservableList<Aluno> listEstudantes;
 
     /**
@@ -93,8 +95,11 @@ public class EstudantesController extends WindowControllerFx {
                 (observale, oldValue, newValue) -> {
                     selectedItemTableEstudantes(newValue);
                 });
-        cmbClasseC.getItems().addAll("10ª Classe", "11ª Classe", "12ª Classe", "13ª Classe");
+//        cmbClasseC.getItems().addAll("10ª Classe", "11ª Classe", "12ª Classe", "13ª Classe");
+        cmbClasseC.setItems(FXCollections.observableArrayList(classeDAO.getClasses()));
+        cmbClasseC.getSelectionModel().selectFirst();
         cmbCursoC.setItems(FXCollections.observableArrayList(cursoDAO.getCursos()));
+        cmbCursoC.getSelectionModel().selectFirst();
     }
     
     @Override
@@ -113,15 +118,27 @@ public class EstudantesController extends WindowControllerFx {
         String genero = (radioGeneroC.getToggles().get(0).isSelected()) ? "Masculino" : "Femenino";
         String email = tfEmailC.getText();
         String telefone = tfTelefoneC.getText();
-        Curso curso = cmbCursoC.getValue();
-        String classe = cmbClasseC.getValue();
+        String curso = cmbCursoC.getValue().getCurso();
+        String classe = cmbClasseC.getValue().getClasse();
         try {
             if (nome.isEmpty() || email.isEmpty()) {
                 new Alert(Alert.AlertType.ERROR, "preenxa todos os campos").show();
             } else {
-                Aluno aluno = new Aluno();
-                
-                alunoDAO.cadastrar(aluno);
+                int isValid = classeDAO.gerarID(curso, classe);
+                if(isValid == -1) {
+                    System.out.println("Alert");
+                }else {
+                    Classe classse = new Classe();
+                    classse.setIdClasse(isValid);
+                    
+                    Aluno aluno = new Aluno();
+                    aluno.setNome(nome);
+                    aluno.setEmail(email);
+                    aluno.setGenero(genero);
+                    aluno.setTelefone(telefone);
+                    aluno.setFkClasse(classse);
+                    alunoDAO.cadastrar(aluno);
+                }
             }
         } catch (Exception e) {
             System.out.println("Erro no cadastro: " + e.getMessage());
@@ -138,8 +155,8 @@ public class EstudantesController extends WindowControllerFx {
     private void showEstudantes() {
         listEstudantes = FXCollections.observableArrayList(alunoDAO.showAlunos());
         columnNumbEstudantes.setCellValueFactory(new PropertyValueFactory<>("numAluno"));
-        columnNome.setCellValueFactory(val -> new SimpleStringProperty(val.getValue().getFkPessoa().getNome()));
-        columnCurso.setCellValueFactory(val -> new SimpleStringProperty(val.getValue().getFkClasse().getFkCurso().getCurso()));
+        columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        columnCurso.setCellValueFactory(val -> new SimpleStringProperty(val.getValue().getFkClasse().getCurso()));
         columnSala.setCellValueFactory(val -> (ObservableValue) new SimpleIntegerProperty(val.getValue().getFkClasse().getSala()));
         columnTurma.setCellValueFactory(val -> new SimpleStringProperty(val.getValue().getFkClasse().getFkTurma().getTurma()));
         columnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -154,14 +171,14 @@ public class EstudantesController extends WindowControllerFx {
     }
     
     private void pageEdit(Aluno getAluno) {
-        nameEstudantes.setText(getAluno.getFkPessoa().getNome());
-        if ("Masculino".equals(getAluno.getFkPessoa().getGenero()))
+        nameEstudantes.setText(getAluno.getNome());
+        if ("Masculino".equals(getAluno.getGenero()))
             radioGeneroE.getToggles().get(0).setSelected(true);
         else 
             radioGeneroE.getToggles().get(1).setSelected(true);
-        emailEstudante.setText(getAluno.getFkPessoa().getEmail());
+        emailEstudante.setText(getAluno.getEmail());
         /* nascimentoEstudante.setText(getAluno.getFkPessoa().getNascimento().toString()); */
-        cursoEstudante.setPromptText(getAluno.getFkClasse().getFkCurso().getCurso());
+        cursoEstudante.setPromptText(getAluno.getFkClasse().getCurso());
         classeEstudante.setText(getAluno.getFkClasse().getClasse());
         salaEstudante.setText(getAluno.getFkClasse().getSala() + "");
         numbEstudante.setText(getAluno.getNumAluno() + "");

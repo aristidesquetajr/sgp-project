@@ -27,8 +27,7 @@ public class LoginController extends WindowControllerFx {
     
     /* Outros Atributos */
     final private UtilizadorDAO utilizadorDAO = new UtilizadorDAO();
-    final private Utilizador utilizador = new Utilizador();
-    private Utilizador resultUtilizador;
+    private Utilizador utilizador;
     private double xOffset, yOffset;
     
     public LoginController() {
@@ -44,18 +43,7 @@ public class LoginController extends WindowControllerFx {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         makeFadeIn(window, 5);
-
-        // grab your root here
-        window.setOnMousePressed(event -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        // root around here
-        window.setOnMouseDragged(event -> {
-            getWindow().setX(event.getScreenX() - xOffset);
-            getWindow().setY(event.getScreenY() - yOffset);
-        });
+        moveWindow();
     }
     
     @FXML
@@ -75,13 +63,13 @@ public class LoginController extends WindowControllerFx {
     @FXML
     void Login(ActionEvent event) {
         try {
-            utilizador.setUsername(txtUser.getText());
-            utilizador.setPassword(txtPass.getText());
-            resultUtilizador = utilizadorDAO.getAccess(utilizador);
+            String username = txtUser.getText();
+            String password = txtPass.getText();
+            utilizador = utilizadorDAO.getAccess(new Utilizador(username, password));
             
-            if (resultUtilizador.getLogado() == 1) {
+            if (utilizador.getLogado() == 1) {
                 makeFadeOut(window, 1);
-                new MainPainelController(resultUtilizador)
+                new MainPainelController(utilizador)
                     .setParent(getWindow())
                     .setModality(Modality.APPLICATION_MODAL)
                     .showUndecorated(true);
@@ -97,6 +85,18 @@ public class LoginController extends WindowControllerFx {
             alert.setTitle("Erro 500");
             alert.show();
         }
+    }
+    
+    private void moveWindow() {
+        window.setOnMousePressed(event -> { // grab your root here
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        });
+
+        window.setOnMouseDragged(event -> { // root around here
+            getWindow().setX(event.getScreenX() - xOffset);
+            getWindow().setY(event.getScreenY() - yOffset);
+        });
     }
     
 }
